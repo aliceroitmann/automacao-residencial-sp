@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação Residencial: Transforme Seu Lar em Casa Inteligente</title>
+    <meta name="description" content="Descubra as vantagens da automação residencial: tecnologia de ponta, praticidade, proteção e redução de custos para criar ambientes modernos e conectados.">
+    <meta name="keywords" content="casa inteligente, automação residencial, smart home, tecnologia residencial, dispositivos inteligentes, controle residencial">
+    <meta name="author" content="Smart Atlantics Brasil">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2d3748;
+            background: linear-gradient(to bottom, #ffffff 0%, #f7fafc 100%);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #ffffff;
+            padding: 4rem 0;
+            text-align: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            opacity: 0.95;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 0 1.5rem;
+        }
+        
+        .content-box {
+            background: #ffffff;
+            padding: 3.5rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .content-box h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .content-box p {
+            margin-bottom: 1.75rem;
+            font-size: clamp(1.05rem, 2.5vw, 1.18rem);
+            line-height: 2;
+            color: #4a5568;
+        }
+        
+        .content-box a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            padding-bottom: 2px;
+        }
+        
+        .content-box a:hover {
+            border-bottom-color: #667eea;
+            color: #5568d3;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+            padding: 0 1rem;
+        }
+        
+        .feature-box {
+            background: linear-gradient(to bottom right, #ffffff 0%, #f7fafc 100%);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(102,126,234,0.2);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .feature-box h3 {
+            color: #764ba2;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .feature-box p {
+            color: #4a5568;
+            line-height: 1.9;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .systems-container {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 4rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+        }
+        
+        .systems-container h2 {
+            color: #667eea;
+            margin-bottom: 3rem;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .systems-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+        
+        .system-card {
+            background: white;
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .system-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .system-card h3 {
+            color: #764ba2;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .system-card p {
+            color: #4a5568;
+            line-height: 1.9;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .tech-area {
+            background: white;
+            padding: 4rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .tech-area h2 {
+            color: #667eea;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .tech-area p {
+            color: #4a5568;
+            line-height: 2;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 3rem 0;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: clamp(1rem, 2.5vw, 1.08rem);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 800;
+        }
+        
+        .comparison-table td {
+            color: #4a5568;
+            background: white;
+        }
+        
+        .comparison-table tr:hover td {
+            background: #f7fafc;
+        }
+        
+        .investment-box {
+            background: linear-gradient(to bottom right, #ffffff 0%, #faf5ff 100%);
+            padding: 4rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 2px solid #e9d5ff;
+        }
+        
+        .investment-box h2 {
+            color: #764ba2;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .investment-box p {
+            color: #4a5568;
+            line-height: 2;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .cta-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4.5rem 2.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(180deg); }
+        }
+        
+        .cta-banner h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-banner p {
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .action-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1.4rem 3rem;
+            text-decoration: none;
+            border-radius: 60px;
+            font-weight: 900;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+        }
+        
+        .future-section {
+            background: white;
+            padding: 4rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .future-section h2 {
+            color: #667eea;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .future-section p {
+            color: #4a5568;
+            line-height: 2;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .resources-area {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            padding: 3.5rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .resources-area h3 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .resources-area > p {
+            color: #4a5568;
+            margin-bottom: 2.5rem;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .resource-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .resource-card {
+            background: white;
+            padding: 2rem 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(102,126,234,0.2);
+            border-color: #667eea;
+        }
+        
+        .resource-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 800;
+            display: block;
+            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+        }
+        
+        .questions-section {
+            background: white;
+            padding: 4rem 2.5rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .questions-section h2 {
+            color: #667eea;
+            margin-bottom: 3rem;
+            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            text-align: center;
+            line-height: 1.3;
+            font-weight: 800;
+        }
+        
+        .question-block {
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .question-block:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question-title {
+            font-weight: 900;
+            color: #764ba2;
+            margin-bottom: 1.25rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+            line-height: 1.4;
+        }
+        
+        .question-text {
+            line-height: 2;
+            color: #4a5568;
+            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+        }
+        
+        .page-footer {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+        
+        .page-footer p {
+            margin: 1rem 0;
+            font-size: clamp(1rem, 2.5vw, 1.1rem);
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+        
+        .highlight-link {
+            background: linear-gradient(to right, #fef3c7 0%, #fde68a 100%);
+            padding: 1.5rem 2rem;
+            margin: 3rem 0;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .highlight-link a {
+            color: #92400e;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .highlight-link a:hover {
+            color: #78350f;
+        }
+        
+        @media (min-width: 768px) {
+            .wrapper {
+                padding: 0 40px;
+            }
+            
+            .content-box,
+            .systems-container,
+            .investment-box,
+            .future-section,
+            .questions-section,
+            .tech-area {
+                padding: 4rem 3.5rem;
+            }
+            
+            .resource-links {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .resource-card {
+                flex: 0 1 auto;
+                min-width: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 1rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="wrapper hero-content">
+            <h1>Revolucione Seu Lar com Automação Inteligente</h1>
+            <p class="hero-subtitle">Explore um universo de possibilidades tecnológicas que unem praticidade incomparável, proteção avançada e eficiência energética para criar ambientes residenciais verdadeiramente modernos e integrados</p>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <section class="content-box">
+            <h2>Entenda o Conceito de Residência Conectada</h2>
+            <p>A revolução tecnológica nas residências modernas representa muito mais do que simples comodidade - é uma transformação completa na maneira como habitamos e interagimos com nossos espaços. Através da implementação de dispositivos conectados e sistemas inteligentes, conseguimos gerenciar remotamente praticamente todos os aspectos do ambiente doméstico, desde a iluminação até os sistemas de climatização e vigilância. Esta modernização proporciona não apenas maior praticidade no dia a dia, mas também traz benefícios expressivos em termos de proteção patrimonial, redução no consumo energético e acessibilidade universal para pessoas de todas as idades e necessidades físicas.</p>
+            
+            <p>Nas metrópoles brasileiras, especialmente em centros como <a href="https://automacao-residencial-sp.netlify.app/" target="_blank" rel="noopener noreferrer">Automação Residencial em São Paulo</a> e demais capitais, a procura por soluções tecnológicas residenciais apresenta crescimento acelerado. A sinergia entre avanços tecnológicos e bem-estar doméstico faz com que estes recursos sejam cada vez mais desejados pelos habitantes das grandes cidades.</p>
+            
+            <p>As plataformas contemporâneas possibilitam aos proprietários comandar virtualmente todos os elementos de suas casas utilizando smartphones, tablets ou comandos por voz. O controle abrange desde ajustes finos de luminosidade até o monitoramento completo de sistemas de proteção, tudo operável à distância, gerando uma experiência única de conforto e funcionalidade. Com a evolução constante das tecnologias digitais e a demanda crescente por soluções práticas, seguras e econômicas, moradores das principais regiões metropolitanas do Brasil estão aderindo massivamente a estes sistemas inovadores.</p>
+            
+            <p>As interfaces modernas também incorporam reconhecimento gestual, sensores ambientais sofisticados e suporte a múltiplos padrões de conectividade incluindo Zigbee, Z-Wave e redes Wi-Fi. Tal versatilidade garante personalização total e operação extremamente intuitiva. A Internet das Coisas (IoT) constitui a base estrutural da automação doméstica atual. Equipamentos interconectados pela rede mundial podem trocar informações entre si e com os usuários, estabelecendo um ecossistema residencial verdadeiramente inteligente e adaptável.</p>
+        </section>
+
+        <section class="features-grid">
+            <div class="feature-box">
+                <h3>Praticidade e Conforto Absolutos</h3>
+                <p>Gerencie todos os dispositivos e sistemas da sua residência através de uma plataforma centralizada, desenvolvendo ambientes customizados para diferentes períodos e atividades. Mediante sensores avançados, regulagem de luminosidade e programações automatizadas, você configura atmosferas perfeitas para trabalho produtivo, momentos de lazer e períodos de relaxamento.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Eficiência Energética Comprovada</h3>
+                <p>Alcance reduções de até 30% nas despesas com eletricidade através de detectores que desativam automaticamente iluminação em espaços vazios, enquanto controladores térmicos inteligentes regulam a climatização baseando-se na ocupação efetiva dos ambientes.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Proteção Contínua e Confiável</h3>
+                <p>Vigilância permanente e alertas em tempo real através de sistemas unificados que englobam câmeras de monitoramento, detectores de movimento, alarmes conectados e controle de entrada, assegurando proteção ininterrupta e notificações instantâneas.</p>
+            </div>
+        </section>
+        
+        <div class="highlight-link">
+            <p>CONFIRA TAMBÉM: <a href="https://automacao-residencial-em-campinas.netlify.app/" target="_blank" rel="noopener noreferrer">AUTOMAÇÃO RESIDENCIAL EM CAMPINAS - SP</a></p>
+        </div>
+        
+        <section class="systems-container">
+            <h2>Sistemas Essenciais de Automação Disponíveis</h2>
+            <div class="systems-layout">
+                <div class="system-card">
+                    <h3>Controle Luminotécnico Avançado</h3>
+                    <p>O gerenciamento automatizado de iluminação possibilita administrar todas as fontes luminosas do imóvel com máxima eficiência. Com detectores de presença, regulagem de intensidade e programação temporal, torna-se possível estabelecer ambientações personalizadas para cada momento. Contempla controle individual ou coletivo de pontos de luz, configuração de cenários pré-estabelecidos e sincronização com sensores de movimento.</p>
+                </div>
+                <div class="system-card">
+                    <h3>Gerenciamento Climático Inteligente</h3>
+                    <p>A climatização automatizada viabiliza a manutenção de temperaturas ideais em todos os cômodos, com ajustes automáticos conforme a ocupação e variações climáticas exteriores. Disponibiliza setorização térmica por ambiente, sincronização com sensores de presença e configurações baseadas nos padrões de uso familiar.</p>
+                </div>
+                <div class="system-card">
+                    <h3>Vigilância Unificada</h3>
+                    <p>O sistema de proteção automatizado garante cobertura completa através de câmeras, sensores variados, alarmes e avisos instantâneos. Incorpora câmeras com recursos de visão noturna, sensores para detecção de movimento e abertura de acessos, complementado por controle biométrico ou por cartões inteligentes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-area">
+            <div class="wrapper">
+                <h2>Principais Tecnologias em Residências Conectadas</h2>
+                <p>O segmento de automação doméstica disponibiliza diversas tecnologias que podem ser integradas para desenvolver soluções sob medida e de alto desempenho. A seleção apropriada do protocolo de comunicação é essencial para assegurar estabilidade e eficiência operacional do conjunto automatizado.</p>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Protocolo</th>
+                            <th>Vantagens Principais</th>
+                            <th>Aplicações Ideais</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wi-Fi</td>
+                            <td>Alta velocidade de transmissão, instalação facilitada</td>
+                            <td>Controle remoto, transmissão multimídia</td>
+                        </tr>
+                        <tr>
+                            <td>Zigbee</td>
+                            <td>Baixo consumo energético, arquitetura em malha</td>
+                            <td>Sensores múltiplos, dispositivos de baixa potência</td>
+                        </tr>
+                        <tr>
+                            <td>Z-Wave</td>
+                            <td>Alcance expandido, compatibilidade universal</td>
+                            <td>Sistemas de segurança, automação generalizada</td>
+                        </tr>
+                        <tr>
+                            <td>Bluetooth</td>
+                            <td>Pareamento direto, custo acessível</td>
+                            <td>Dispositivos pessoais, operação local</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <p>As centrais de gerenciamento integram todos os equipamentos conectados em uma interface única e amigável, proporcionando experiência excepcional ao usuário. Cada metodologia apresenta benefícios específicos conforme as necessidades: configurações locais garantem maior segurança e operação independente de internet, ao passo que sistemas em nuvem viabilizam acesso ilimitado à distância e atualizações automáticas de firmware.</p>
+            </div>
+        </section>
+
+        <section class="investment-box">
+            <h2>Investimento e Retorno Financeiro</h2>
+            <p>O capital necessário para implementar automação residencial varia conforme as dimensões do imóvel e a sofisticação do sistema pretendido. Contudo, o retorno sobre o investimento se manifesta de forma significativa em múltiplas dimensões. Diversos elementos influenciam o custo total: metragem e complexidade arquitetônica da residência, quantidade de equipamentos a serem automatizados, grau de customização e integração requerido, escolha de fabricantes e modelos específicos, e se a implementação ocorrerá em construção nova ou em imóvel existente.</p>
+            
+            <p>Além da economia substancial com energia elétrica, a automação diminui despesas com manutenção preventiva, apólices de seguro e incrementa significativamente a valorização imobiliária, gerando retorno financeiro consistente ao longo do tempo. As vantagens econômicas se expressam de diversas maneiras: economia energética com redução de 20-30% nas contas de luz, segurança patrimonial com diminuição de sinistros e prêmios de seguro reduzidos, valorização com acréscimo de 5-15% no valor de mercado, e manutenção com prevenção de falhas e custos operacionais minimizados.</p>
+            
+            <p>Para quem prioriza sustentabilidade, a combinação da automação residencial com geração de energia solar representa uma união perfeita entre tecnologia e consciência ambiental. Esta integração permite não somente economizar energia, mas também produzir sua própria eletricidade, minimizando drasticamente os gastos mensais com fornecimento energético.</p>
+        </section>
+
+        <section class="future-section">
+            <h2>Perspectivas para a Automação Residencial</h2>
+            <p>O mercado de automação doméstica está em permanente transformação, com inovações e tendências que prometem revolucionar ainda mais a experiência dos usuários nas principais metrópoles brasileiras. A incorporação de inteligência artificial permite que os sistemas aprendam os padrões de comportamento dos moradores, realizando ajustes automáticos nas configurações para otimizar conforto e eficiência operacional.</p>
+            
+            <p>A automação residencial futura será capaz de prever as necessidades dos habitantes antes mesmo que elas sejam percebidas conscientemente. A ampliação da Internet das Coisas está conectando progressivamente mais equipamentos domésticos à rede, estabelecendo ecossistemas inteligentes que interagem entre si e com os usuários de forma fluida e natural.</p>
+            
+            <p>Aplicações emergentes contemplam eletrodomésticos inteligentes completamente integrados, assistentes virtuais com capacidades ampliadas, gerenciamento preditivo para manutenção preventiva e integração com automóveis e infraestrutura de mobilidade urbana. A automação residencial contemporânea é desenvolvida para ser compatível com a vasta maioria dos smartphones e dispositivos móveis existentes no mercado.</p>
+        </section>
+
+        <section class="cta-banner">
+            <h2>Comece Sua Transformação Digital</h2>
+            <p>Experimente os benefícios da tecnologia residencial de ponta</p>
+            <a href="https://www.perplexity.ai/page/smart-atlantics-brasil-online-bO.evRmZTbiYm9aeboFw9Q" target="_blank" rel="noopener noreferrer" class="action-btn">Solicite uma Consulta Gratuita</a>
+        </section>
+
+        <section class="resources-area">
+            <h3>Explore Mais Sobre Residências Conectadas</h3>
+            <p>Descubra como a inovação tecnológica pode transformar seu ambiente doméstico:</p>
+            <div class="resource-links">
+                <div class="resource-card">
+                    <a href="https://www.perplexity.ai/page/smart-atlantics-brasil-online-bO.evRmZTbiYm9aeboFw9Q" target="_blank" rel="noopener noreferrer">Automação Residencial</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://automacao-residencial-sp.netlify.app/" target="_blank" rel="noopener noreferrer">Automação Residencial em São Paulo</a>
+                </div>
+                <div class="resource-card">
+                    <a href="https://automacao-residencial-em-campinas.netlify.app/" target="_blank" rel="noopener noreferrer">Automação Residencial em Campinas</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="questions-section">
+            <h2>Perguntas Mais Comuns</h2>
+            <div class="question-block">
+                <div class="question-title">1. De que forma opera a automação residencial?</div>
+                <div class="question-text">A automação residencial consiste em um conjunto de sistemas que viabilizam o controle e monitoramento de diversos equipamentos e dispositivos da sua habitação através de uma interface centralizada, como smartphones, tablets ou assistentes virtuais. Ela integra tecnologias como Internet das Coisas (IoT), sensores inteligentes e atuadores para estabelecer um ambiente adaptativo e responsivo.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">2. Quais são os principais benefícios da automação residencial?</div>
+                <div class="question-text">Os benefícios principais englobam incremento expressivo de praticidade e conforto, economia de energia elétrica (alcançando até 30%), proteção aprimorada com vigilância contínua, controle remoto de qualquer localização e valorização significativa do imóvel no mercado.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">3. É viável automatizar uma casa já construída?</div>
+                <div class="question-text">Sim, é perfeitamente viável automatizar imóveis já edificados. Existem soluções desenvolvidas especificamente para retrofit que empregam tecnologias wireless, dispensando reformas estruturais invasivas. A automação pode ser implementada progressivamente, iniciando com setores específicos da habitação.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">4. Qual o tempo necessário para instalação de um sistema automatizado?</div>
+                <div class="question-text">O tempo varia conforme a sofisticação do sistema e as dimensões da residência. Para uma automação elementar em uma casa de porte médio, a instalação pode demandar de 2 a 5 dias úteis. Sistemas mais sofisticados e abrangentes podem requerer de 1 a 3 semanas.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">5. Meu dispositivo móvel é compatível com automação residencial?</div>
+                <div class="question-text">Sim, os sistemas contemporâneos são projetados para compatibilidade com a maioria dos smartphones e dispositivos móveis disponíveis, oferecendo aplicativos nativos para plataformas iOS e Android com interfaces intuitivas e recursos completos.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">6. Quais são os protocolos de comunicação mais utilizados?</div>
+                <div class="question-text">Os protocolos mais empregados incluem Wi-Fi (alta velocidade de transmissão), Zigbee (baixo consumo energético, arquitetura em malha), Z-Wave (maior alcance, interoperabilidade entre fabricantes) e Bluetooth (conexão direta). A seleção depende das necessidades particulares de cada dispositivo e aplicação.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">7. O sistema opera sem conexão com a internet?</div>
+                <div class="question-text">Sim, a maioria dos sistemas é projetada para funcionar localmente mesmo sem acesso à internet. As automações configuradas, como acionamento por sensores de presença e programações horárias, permanecem operacionais normalmente, garantindo que os sistemas críticos não sejam interrompidos.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">8. De que maneira a automação promove economia energética?</div>
+                <div class="question-text">A automação economiza energia através de sensores de presença que desativam iluminação automaticamente, controladores térmicos inteligentes que regulam a temperatura baseando-se na ocupação efetiva, e programação temporal para equipamentos, otimizando seu funcionamento e eliminando desperdícios.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">9. A automação residencial oferece segurança? Como proteger informações pessoais?</div>
+                <div class="question-text">A segurança é prioritária. Recomenda-se a utilização de senhas robustas e complexas, autenticação em dois fatores, atualização periódica de firmwares e softwares, segmentação da rede Wi-Fi e seleção de fabricantes comprometidos com segurança e criptografia de informações pessoais.</div>
+            </div>
+            <div class="question-block">
+                <div class="question-title">10. É possível expandir meu sistema automatizado futuramente?</div>
+                <div class="question-text">Sim, os sistemas modernos são desenvolvidos para serem escaláveis e expansíveis. Eles utilizam arquiteturas modulares e são compatíveis com padrões abertos, possibilitando adicionar novos dispositivos e funcionalidades conforme suas necessidades evoluem progressivamente.</div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <div class="wrapper">
+            <p>2025 Automação Residencial. Todos os direitos reservados.</p>
+            <p>Transformando residências em ambientes inteligentes com tecnologia avançada e inovação contínua.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navegação suave para âncoras
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetElement = document.querySelector(this.getAttribute('href'));
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animação de entrada dos elementos
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { 
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.feature-box, .system-card, .question-block').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(40px)';
+            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            scrollObserver.observe(element);
+        });
+
+        // Efeito de fade-in na página
+        window.addEventListener('load', () => {
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.6s ease';
+                document.body.style.opacity = 1;
+            }, 150);
+        });
+
+        // Animação suave para tabela
+        const tableObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const rows = entry.target.querySelectorAll('tbody tr');
+                    rows.forEach((row, index) => {
+                        setTimeout(() => {
+                            row.style.opacity = 1;
+                            row.style.transform = 'translateX(0)';
+                        }, index * 100);
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const table = document.querySelector('.comparison-table');
+        if (table) {
+            const rows = table.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                row.style.opacity = 0;
+                row.style.transform = 'translateX(-30px)';
+                row.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            tableObserver.observe(table);
+        }
+    </script>
+</body>
+</html>
