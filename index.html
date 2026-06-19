@@ -1,805 +1,1044 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automação Residencial: Transforme Seu Lar em Casa Inteligente</title>
-    <meta name="description" content="Descubra as vantagens da automação residencial: tecnologia de ponta, praticidade, proteção e redução de custos para criar ambientes modernos e conectados.">
-    <meta name="keywords" content="casa inteligente, automação residencial, smart home, tecnologia residencial, dispositivos inteligentes, controle residencial">
-    <meta name="author" content="Smart Atlantics Brasil">
+    <title>Automação Residencial e Corporativa em São Paulo | Automação SP</title>
+    <meta name="description" content="Serviços de automação residencial e corporativa em São Paulo e região. Iluminação, Som, Ar Condicionado, Airbnb, Booking, Segurança e muito mais.">
+    <meta name="keywords" content="automação residencial, automação corporativa, automação airbnb, automação booking, energia solar, home theater, São Paulo">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary: #0a192f;
+            --secondary: #112240;
+            --accent: #64ffda;
+            --text: #ccd6f6;
+            --text-light: #8892b0;
+            --white: #ffffff;
+            --cta-bg: #25D366;
+            --cta-hover: #1ebe5d;
+            --cta-external: #0a66c2;
+            --cta-external-hover: #004182;
         }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            color: #2d3748;
-            background: linear-gradient(to bottom, #ffffff 0%, #f7fafc 100%);
-            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--primary);
         }
-        
-        .wrapper {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #ffffff;
-            padding: 4rem 0;
-            text-align: center;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
+
+        header {
+            background: var(--secondary);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        h1 {
-            font-size: clamp(2.2rem, 6vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            font-weight: 900;
-            line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            opacity: 0.95;
-            max-width: 900px;
+
+        .nav-container {
+            max-width: 1200px;
             margin: 0 auto;
-            line-height: 1.6;
-            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
         }
-        
-        .content-box {
-            background: #ffffff;
-            padding: 3.5rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #e2e8f0;
-        }
-        
-        .content-box h2 {
-            color: #667eea;
-            margin-bottom: 2rem;
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .content-box p {
-            margin-bottom: 1.75rem;
-            font-size: clamp(1.05rem, 2.5vw, 1.18rem);
-            line-height: 2;
-            color: #4a5568;
-        }
-        
-        .content-box a {
-            color: #667eea;
+
+        .logo {
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
             text-decoration: none;
-            font-weight: 700;
-            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
-            transition: all 0.3s ease;
-            padding-bottom: 2px;
         }
-        
-        .content-box a:hover {
-            border-bottom-color: #667eea;
-            color: #5568d3;
+
+        .menu { list-style: none; display: flex; gap: 1.5rem; }
+        .menu li { position: relative; }
+
+        .menu > li > a {
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            display: block;
+            transition: color 0.3s;
         }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            margin: 3rem 0;
-            padding: 0 1rem;
-        }
-        
-        .feature-box {
-            background: linear-gradient(to bottom right, #ffffff 0%, #f7fafc 100%);
-            padding: 3rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(102,126,234,0.2);
-            border-color: rgba(102, 126, 234, 0.3);
-        }
-        
-        .feature-box h3 {
-            color: #764ba2;
-            margin-bottom: 1.5rem;
-            font-size: clamp(1.25rem, 3vw, 1.5rem);
-            line-height: 1.3;
-            font-weight: 700;
-        }
-        
-        .feature-box p {
-            color: #4a5568;
-            line-height: 1.9;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
-        }
-        
-        .systems-container {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            padding: 4rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-        }
-        
-        .systems-container h2 {
-            color: #667eea;
-            margin-bottom: 3rem;
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
-            text-align: center;
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .systems-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-        }
-        
-        .system-card {
-            background: white;
-            text-align: center;
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .system-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .system-card h3 {
-            color: #764ba2;
-            margin-bottom: 1.5rem;
-            font-size: clamp(1.2rem, 3vw, 1.4rem);
-            line-height: 1.3;
-            font-weight: 700;
-        }
-        
-        .system-card p {
-            color: #4a5568;
-            line-height: 1.9;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
-        }
-        
-        .tech-area {
-            background: white;
-            padding: 4rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        
-        .tech-area h2 {
-            color: #667eea;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
-            text-align: center;
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .tech-area p {
-            color: #4a5568;
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin: 3rem 0;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1.5rem 1.25rem;
-            text-align: left;
-            border-bottom: 1px solid #e2e8f0;
-            font-size: clamp(1rem, 2.5vw, 1.08rem);
-        }
-        
-        .comparison-table th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            font-weight: 800;
-        }
-        
-        .comparison-table td {
-            color: #4a5568;
-            background: white;
-        }
-        
-        .comparison-table tr:hover td {
-            background: #f7fafc;
-        }
-        
-        .investment-box {
-            background: linear-gradient(to bottom right, #ffffff 0%, #faf5ff 100%);
-            padding: 4rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 2px solid #e9d5ff;
-        }
-        
-        .investment-box h2 {
-            color: #764ba2;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
-            text-align: center;
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .investment-box p {
-            color: #4a5568;
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
-        }
-        
-        .cta-banner {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4.5rem 2.5rem;
-            text-align: center;
-            margin: 3rem 0;
-            border-radius: 20px;
-            box-shadow: 0 12px 32px rgba(102, 126, 234, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-banner::before {
-            content: '';
+
+        .menu > li > a:hover { color: var(--accent); }
+
+        .submenu {
+            display: none;
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 15s ease-in-out infinite;
+            background: var(--secondary);
+            min-width: 260px;
+            list-style: none;
+            top: 100%;
+            left: 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            max-height: 400px;
+            overflow-y: auto;
         }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(180deg); }
-        }
-        
-        .cta-banner h2 {
-            font-size: clamp(2.2rem, 5vw, 3rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            font-weight: 900;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-banner p {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            margin-bottom: 3rem;
-            opacity: 0.95;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .action-btn {
-            display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 1.4rem 3rem;
+
+        .menu li:hover .submenu { display: block; }
+
+        .submenu li a {
+            color: var(--text);
+            padding: 0.75rem 1rem;
             text-decoration: none;
-            border-radius: 60px;
-            font-weight: 900;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: clamp(1.05rem, 2.5vw, 1.2rem);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            display: block;
+            transition: background 0.3s;
+            border-bottom: 1px solid var(--primary);
+        }
+
+        .submenu li a:hover { background: var(--primary); color: var(--accent); }
+
+        .hero {
             position: relative;
-            z-index: 1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .action-btn:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
-            background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
-        }
-        
-        .future-section {
-            background: white;
-            padding: 4rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        
-        .future-section h2 {
-            color: #667eea;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            line-height: 1.3;
-            font-weight: 800;
+            background-image: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.9)), url('https://z-cdn-media.chatglm.cn/files/de201174-350f-49a5-a2f9-e620e90c46c1.jpg?auth_key=1881823444-8ef6bfd1ebc64dc687817fd7bba9635e-0-e03dc6cfd3646921abaf86d38ea4ae53');
+            background-size: cover;
+            background-position: center;
         }
-        
-        .future-section p {
-            color: #4a5568;
-            line-height: 2;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
-        }
-        
-        .resources-area {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            padding: 3.5rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
+
+        .hero-content h1 { font-size: 3rem; color: var(--white); margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; color: var(--accent); margin-bottom: 2rem; }
+
+        section { padding: 4rem 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 2rem;
             text-align: center;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 0.5rem;
         }
-        
-        .resources-area h3 {
-            color: #667eea;
+
+        .center-title { text-align: center; margin-bottom: 3rem; }
+
+        .service-card {
+            background: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .service-card:nth-child(even) { flex-direction: row-reverse; }
+
+        .service-img {
+            flex: 1 1 300px;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-content { flex: 2 1 400px; padding: 2rem; }
+
+        .service-content h3 { color: var(--accent); font-size: 1.5rem; margin-bottom: 1rem; }
+
+        /* Estilo para separação de frases */
+        .service-content p, .cluster-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            text-align: justify;
+            hyphens: auto;
+        }
+        .service-content p:last-child, .cluster-card p:last-child {
             margin-bottom: 1.5rem;
-            font-size: clamp(1.5rem, 3.5vw, 1.8rem);
-            line-height: 1.3;
-            font-weight: 800;
         }
-        
-        .resources-area > p {
-            color: #4a5568;
-            margin-bottom: 2.5rem;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--cta-bg);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            margin-top: 1rem;
         }
-        
-        .resource-links {
+
+        .cta-btn:hover { background-color: var(--cta-hover); transform: translateY(-2px); }
+
+        .credit-section { text-align: center; background: var(--secondary); padding: 2rem; }
+        .credit-section a { color: var(--accent); text-decoration: none; font-weight: bold; }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .testimonial-card p { font-style: italic; margin-bottom: 1rem; color: var(--text-light); }
+        .testimonial-card h4 { color: var(--white); text-align: right; }
+
+        .cluster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2rem;
+        }
+
+        .cluster-card {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2.5rem;
         }
+
+        .cluster-card h4 { color: var(--accent); margin-bottom: 1rem; font-size: 1.4rem; }
         
-        .resource-card {
-            background: white;
-            padding: 2rem 2.5rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(102,126,234,0.2);
-            border-color: #667eea;
-        }
-        
-        .resource-card a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 800;
+        .cluster-buttons { display: flex; flex-direction: column; gap: 1rem; margin-top: auto; }
+
+        .cta-external-btn {
             display: block;
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
-        }
-        
-        .questions-section {
-            background: white;
-            padding: 4rem 2.5rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        
-        .questions-section h2 {
-            color: #667eea;
-            margin-bottom: 3rem;
-            font-size: clamp(1.7rem, 4vw, 2.4rem);
-            text-align: center;
-            line-height: 1.3;
-            font-weight: 800;
-        }
-        
-        .question-block {
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        .question-block:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .question-title {
-            font-weight: 900;
-            color: #764ba2;
-            margin-bottom: 1.25rem;
-            font-size: clamp(1.1rem, 2.5vw, 1.2rem);
-            line-height: 1.4;
-        }
-        
-        .question-text {
-            line-height: 2;
-            color: #4a5568;
-            font-size: clamp(1.02rem, 2.5vw, 1.1rem);
-        }
-        
-        .page-footer {
-            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 5rem;
-        }
-        
-        .page-footer p {
-            margin: 1rem 0;
-            font-size: clamp(1rem, 2.5vw, 1.1rem);
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-        
-        .highlight-link {
-            background: linear-gradient(to right, #fef3c7 0%, #fde68a 100%);
-            padding: 1.5rem 2rem;
-            margin: 3rem 0;
-            border-radius: 12px;
-            text-align: center;
-            border-left: 4px solid #f59e0b;
-        }
-        
-        .highlight-link a {
-            color: #92400e;
+            background-color: var(--cta-external);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
             text-decoration: none;
-            font-weight: 900;
-            font-size: clamp(1.05rem, 2.5vw, 1.15rem);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-align: center;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(10, 102, 194, 0.3);
         }
-        
-        .highlight-link a:hover {
-            color: #78350f;
+
+        .cta-external-btn:hover { background-color: var(--cta-external-hover); transform: translateY(-2px); }
+
+        .hours-section { text-align: center; background: var(--secondary); padding: 3rem 1rem; }
+        .hours-section p { font-size: 1.2rem; color: var(--accent); margin-top: 1rem; }
+
+        footer { background: #060f1d; color: var(--text-light); padding: 3rem 1rem 1rem; }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
-        @media (min-width: 768px) {
-            .wrapper {
-                padding: 0 40px;
-            }
-            
-            .content-box,
-            .systems-container,
-            .investment-box,
-            .future-section,
-            .questions-section,
-            .tech-area {
-                padding: 4rem 3.5rem;
-            }
-            
-            .resource-links {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .resource-card {
-                flex: 0 1 auto;
-                min-width: 280px;
-            }
+
+        .footer-col h5 { color: var(--white); margin-bottom: 1rem; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            line-height: 2;
+            transition: color 0.3s;
         }
-        
-        @media (max-width: 480px) {
-            .comparison-table {
-                font-size: 0.85rem;
+        .footer-col ul li a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .menu-toggle { display: none; cursor: pointer; color: var(--accent); font-size: 1.5rem; }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--secondary);
+                padding: 1rem 0;
             }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 1rem 0.8rem;
-            }
+            .nav-container:hover .menu, .menu:hover { display: flex; }
+            .menu li:hover .submenu { position: static; box-shadow: none; background: var(--primary); }
+            .hero-content h1 { font-size: 2rem; }
+            .service-card, .service-card:nth-child(even) { flex-direction: column; }
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="wrapper hero-content">
-            <h1>Revolucione Seu Lar com Automação Inteligente</h1>
-            <p class="hero-subtitle">Explore um universo de possibilidades tecnológicas que unem praticidade incomparável, proteção avançada e eficiência energética para criar ambientes residenciais verdadeiramente modernos e integrados</p>
-        </div>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo">Automação SP</a>
+            <div class="menu-toggle">☰ Menu</div>
+            <ul class="menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Serviços ▾</a>
+                    <ul class="submenu">
+                        <li><a href="#residencial">Automação Residencial</a></li>
+                        <li><a href="#corporativa">Automação Corporativa</a></li>
+                        <li><a href="#iluminacao">Automação de Iluminação</a></li>
+                        <li><a href="#som">Som Ambiente</a></li>
+                        <li><a href="#ar">Ar Condicionado</a></li>
+                        <li><a href="#acesso">Controle de Acesso</a></li>
+                        <li><a href="#airbnb">Automação AIRBNB</a></li>
+                        <li><a href="#booking">Automação BOOKING</a></li>
+                        <li><a href="#persianas">Persianas e Cortinas</a></li>
+                        <li><a href="#internet">Internet e Wi-Fi</a></li>
+                        <li><a href="#voz">Assistente de Voz</a></li>
+                        <li><a href="#solar">Energia Solar</a></li>
+                        <li><a href="#hometheater">Home Theater</a></li>
+                        <li><a href="#seguranca">Segurança & CFTV</a></li>
+                    </ul>
+                </li>
+                <li><a href="#cidades">Áreas de Atendimento ▾</a>
+                    <ul class="submenu">
+                        <li><a href="#grande-sp">Grande SP</a></li>
+                        <li><a href="#interior">Interior de SP</a></li>
+                        <li><a href="#litoral">Litoral de SP</a></li>
+                    </ul>
+                </li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="wrapper">
-        <section class="content-box">
-            <h2>Entenda o Conceito de Residência Conectada</h2>
-            <p>A revolução tecnológica nas residências modernas representa muito mais do que simples comodidade - é uma transformação completa na maneira como habitamos e interagimos com nossos espaços. Através da implementação de dispositivos conectados e sistemas inteligentes, conseguimos gerenciar remotamente praticamente todos os aspectos do ambiente doméstico, desde a iluminação até os sistemas de climatização e vigilância. Esta modernização proporciona não apenas maior praticidade no dia a dia, mas também traz benefícios expressivos em termos de proteção patrimonial, redução no consumo energético e acessibilidade universal para pessoas de todas as idades e necessidades físicas.</p>
-            
-            <p>Nas metrópoles brasileiras, especialmente em centros como <a href="https://automacao-residencial-sp.netlify.app/" target="_blank" rel="noopener noreferrer">Automação Residencial em São Paulo</a> e demais capitais, a procura por soluções tecnológicas residenciais apresenta crescimento acelerado. A sinergia entre avanços tecnológicos e bem-estar doméstico faz com que estes recursos sejam cada vez mais desejados pelos habitantes das grandes cidades.</p>
-            
-            <p>As plataformas contemporâneas possibilitam aos proprietários comandar virtualmente todos os elementos de suas casas utilizando smartphones, tablets ou comandos por voz. O controle abrange desde ajustes finos de luminosidade até o monitoramento completo de sistemas de proteção, tudo operável à distância, gerando uma experiência única de conforto e funcionalidade. Com a evolução constante das tecnologias digitais e a demanda crescente por soluções práticas, seguras e econômicas, moradores das principais regiões metropolitanas do Brasil estão aderindo massivamente a estes sistemas inovadores.</p>
-            
-            <p>As interfaces modernas também incorporam reconhecimento gestual, sensores ambientais sofisticados e suporte a múltiplos padrões de conectividade incluindo Zigbee, Z-Wave e redes Wi-Fi. Tal versatilidade garante personalização total e operação extremamente intuitiva. A Internet das Coisas (IoT) constitui a base estrutural da automação doméstica atual. Equipamentos interconectados pela rede mundial podem trocar informações entre si e com os usuários, estabelecendo um ecossistema residencial verdadeiramente inteligente e adaptável.</p>
-        </section>
-
-        <section class="features-grid">
-            <div class="feature-box">
-                <h3>Praticidade e Conforto Absolutos</h3>
-                <p>Gerencie todos os dispositivos e sistemas da sua residência através de uma plataforma centralizada, desenvolvendo ambientes customizados para diferentes períodos e atividades. Mediante sensores avançados, regulagem de luminosidade e programações automatizadas, você configura atmosferas perfeitas para trabalho produtivo, momentos de lazer e períodos de relaxamento.</p>
-            </div>
-            <div class="feature-box">
-                <h3>Eficiência Energética Comprovada</h3>
-                <p>Alcance reduções de até 30% nas despesas com eletricidade através de detectores que desativam automaticamente iluminação em espaços vazios, enquanto controladores térmicos inteligentes regulam a climatização baseando-se na ocupação efetiva dos ambientes.</p>
-            </div>
-            <div class="feature-box">
-                <h3>Proteção Contínua e Confiável</h3>
-                <p>Vigilância permanente e alertas em tempo real através de sistemas unificados que englobam câmeras de monitoramento, detectores de movimento, alarmes conectados e controle de entrada, assegurando proteção ininterrupta e notificações instantâneas.</p>
-            </div>
-        </section>
-        
-        <div class="highlight-link">
-            <p>CONFIRA TAMBÉM: <a href="https://automacao-residencial-em-campinas.netlify.app/" target="_blank" rel="noopener noreferrer">AUTOMAÇÃO RESIDENCIAL EM CAMPINAS - SP</a></p>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Tecnologia e Conforto para sua Vida</h1>
+            <p>Automação Residencial e Corporativa de Alto Padrão em São Paulo</p>
+            <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento</a>
         </div>
-        
-        <section class="systems-container">
-            <h2>Sistemas Essenciais de Automação Disponíveis</h2>
-            <div class="systems-layout">
-                <div class="system-card">
-                    <h3>Controle Luminotécnico Avançado</h3>
-                    <p>O gerenciamento automatizado de iluminação possibilita administrar todas as fontes luminosas do imóvel com máxima eficiência. Com detectores de presença, regulagem de intensidade e programação temporal, torna-se possível estabelecer ambientações personalizadas para cada momento. Contempla controle individual ou coletivo de pontos de luz, configuração de cenários pré-estabelecidos e sincronização com sensores de movimento.</p>
-                </div>
-                <div class="system-card">
-                    <h3>Gerenciamento Climático Inteligente</h3>
-                    <p>A climatização automatizada viabiliza a manutenção de temperaturas ideais em todos os cômodos, com ajustes automáticos conforme a ocupação e variações climáticas exteriores. Disponibiliza setorização térmica por ambiente, sincronização com sensores de presença e configurações baseadas nos padrões de uso familiar.</p>
-                </div>
-                <div class="system-card">
-                    <h3>Vigilância Unificada</h3>
-                    <p>O sistema de proteção automatizado garante cobertura completa através de câmeras, sensores variados, alarmes e avisos instantâneos. Incorpora câmeras com recursos de visão noturna, sensores para detecção de movimento e abertura de acessos, complementado por controle biométrico ou por cartões inteligentes.</p>
-                </div>
-            </div>
-        </section>
+    </section>
 
-        <section class="tech-area">
-            <div class="wrapper">
-                <h2>Principais Tecnologias em Residências Conectadas</h2>
-                <p>O segmento de automação doméstica disponibiliza diversas tecnologias que podem ser integradas para desenvolver soluções sob medida e de alto desempenho. A seleção apropriada do protocolo de comunicação é essencial para assegurar estabilidade e eficiência operacional do conjunto automatizado.</p>
+    <section id="servicos" class="container">
+        <div class="center-title">
+            <h2>Nossos Serviços de Automação</h2>
+        </div>
+
+        <!-- 1. Residencial -->
+        <article class="service-card" id="residencial">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/b1ea3997-12c1-469e-a78b-0dffd04d67d4.jpg?auth_key=1881823444-3a4e4f61c4ca4690bbe8b9b28f8cca8f-0-0c1b1a7cd2bb843a2049754e949fb725');"></div>
+            <div class="service-content">
+                <h3>Automação Residencial Completa</h3>
+                <p>A Automação Residencial SP oferece soluções completas para transformar sua casa em um ambiente verdadeiramente inteligente, conectado e seguro.</p>
+                <p>Nossos serviços de automação residencial integram iluminação, áudio, vídeo, climatização, persianas e segurança em uma única plataforma intuitiva, permitindo que você controle toda a sua casa através de touch screens, smartphones ou comandos de voz.</p>
+                <p>Imagine chegar em casa e, com um simples toque, acender as luzes, ajustar a temperatura do ar-condicionado, fechar as persianas e iniciar sua playlist favorita.</p>
+                <p>Nosso sistema de automação residencial em São Paulo é projetado para proporcionar o máximo de conforto, conveniência e economia de energia.</p>
+                <p>Trabalhamos com as melhores marcas do mercado, garantindo equipamentos de alta durabilidade e desempenho excepcional.</p>
+                <p>Além disso, nossa equipe de especialistas realiza um estudo detalhado do seu projeto arquitetônico para garantir que a instalação seja discreta, mantendo a estética do seu lar.</p>
+                <p>Seja na construção de uma nova residência ou na retrofit de imóveis existentes, dispomos de soluções sem fio e com fio que se adaptam perfeitamente a qualquer necessidade.</p>
+                <p>A segurança da sua família é prioridade: integramos cercas elétricas, câmeras de alta definição, controle de acesso e sensores de presença que enviam notificações em tempo real para o seu celular.</p>
+                <p>Na área de entretenimento, criamos home theaters imersivos e sistemas de áudio multiroom que permitem ouvir músicas diferentes em cada cômodo.</p>
+                <p>A Automação Residencial SP também se preocupa com a sustentabilidade, oferecendo gestão inteligente de energia que reduz o consumo elétrico e os custos da sua conta.</p>
+                <p>Nossa infraestrutura de rede é preparada para suportar inúmeros dispositivos conectados sem perda de velocidade.</p>
+                <p>Atendemos toda a Grande São Paulo com excelência, garantindo suporte técnico rápido e eficiente.</p>
+                <p>Invista em tecnologia de ponta para elevar a qualidade de vida da sua família.</p>
+                <p>Solicite um orçamento personalizado e descubra como podemos tornar sua casa mais inteligente, segura e confortável.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Quero Automar Minha Casa</a>
+            </div>
+        </article>
+
+        <!-- 2. Corporativa -->
+        <article class="service-card" id="corporativa">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/6f226473-7574-4444-88fe-564d2e348a74.jpg?auth_key=1881823444-5ebb406550fa4edf8cae8d6e3fd5a6b9-0-a5b39b442dcd1d7885c87704db9a740f');"></div>
+            <div class="service-content">
+                <h3>Automação Corporativa e Empresarial</h3>
+                <p>A Automação Corporativa é essencial para empresas que buscam otimizar processos, aumentar a produtividade e reduzir custos operacionais na cidade de São Paulo e região.</p>
+                <p>Na Automação Residencial SP, desenvolvemos soluções corporativas sob medida para escritórios, indústrias, clínicas, museus e espaços comerciais.</p>
+                <p>Integramos sistemas de audiovisual, videoconferência, controle de iluminação, climatização e segurança em uma interface centralizada, facilitando a gestão das instalações.</p>
+                <p>Em salas de reunião, por exemplo, com um único toque é possível ligar o projetor, baixar a tela, escurecer o ambiente e iniciar a chamada de vídeo, proporcionando reuniões fluidas e profissionais.</p>
+                <p>Para o varejo e museus, criamos ambientes imersivos com iluminação focal e trilhas sonoras dinâmicas que melhoram a experiência do cliente.</p>
+                <p>Nossos sistemas de automação empresarial também incluem controle rigoroso de acesso, permitindo a gestão de quem entra e sai do prédio, além de monitoramento por câmeras de alta definição (CFTV) com armazenamento em nuvem.</p>
+                <p>A gestão de energia é outro pilar da automação corporativa: nossos sensores desligam luzes e equipamentos em ambientes vazios, enquanto a climatização é ajustada automaticamente conforme a ocupação, resultando em significativa economia financeira.</p>
+                <p>A infraestrutura de TI que implementamos garante redes robustas e seguras, indispensáveis para o funcionamento ininterrupto dos negócios.</p>
+                <p>Oferecemos painéis de controle personalizados, permitindo que gestores monitorem todo o prédio a partir de um computador central ou smartphone.</p>
+                <p>Nossa equipe altamente qualificada realiza a manutenção preditiva e corretiva, assegurando que sua empresa nunca pare.</p>
+                <p>Atendemos empresas de todos os portes em São Paulo, Guarulhos, Osasco e ABC, levando inovação tecnológica diretamente para o seu negócio.</p>
+                <p>A tecnologia a seu favor para destacar sua empresa no mercado.</p>
+                <p>Modernize seu ambiente corporativo, melhore o bem-estar dos colaboradores e encante seus clientes.</p>
+                <p>Entre em contato com nossa equipe comercial e agende uma visita técnica para avaliarmos as necessidades do seu negócio e propormos a melhor solução em automação corporativa.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Automar Minha Empresa</a>
+            </div>
+        </article>
+
+        <!-- 3. Iluminação -->
+        <article class="service-card" id="iluminacao">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/jantar-romantico-em-sua-casa-inteligente.jpg?auth_key=1881823444-3a4e4f61c4ca4690bbe8b9b28f8cca8f-0-0c1b1a7cd2bb843a2049754e949fb725');"></div>
+            <div class="service-content">
+                <h3>Automação de Iluminação</h3>
+                <p>A Automação de Iluminação é um dos pilares para transformar qualquer ambiente, proporcionando não apenas estética e modernidade, mas também conforto e eficiência energética.</p>
+                <p>Na Automação Residencial SP, nossa especialidade em São Paulo é desenvolver projetos de iluminação inteligente que se adaptam à rotina dos moradores e às necessidades de empresas.</p>
+                <p>Com a instalação de dimmers inteligentes, relés e controladores, eliminamos a necessidade de múltiplos interruptores na parede, substituindo-os por elegantes painéis touch screen ou sensores de presença.</p>
+                <p>Através do seu smartphone ou comandos de voz, é possível criar cenários luminosos personalizados: "Modo Cinema" diminui as luzes para a sessão de filmes, "Modo Receber" ilumina a sala de estar e a varanda para convidados, e "Modo Dormir" apaga todas as luzes e acende apenas uma luz de balizador nos corredores.</p>
+                <p>Em ambientes corporativos, a iluminação automatizada garante que salas vazias não consumam energia, com sensores que desligam as luzes automaticamente.</p>
+                <p>Trabalhamos com tecnologias como DALI e KNX, garantando compatibilidade com fitas de LED, spots, pendentes e lustres de qualquer marca.</p>
+                <p>Além disso, a integração com a luz natural permite que a iluminação artificial ajuste sua intensidade conforme a luz do sol, através de sensores de luminosidade.</p>
+                <p>Nosso time de engenheiros e instaladores em São Paulo projeta a infraestrutura elétrica de forma a tornar todo o sistema discreto e seguro.</p>
+                <p>A combinação de diferentes tonalidades de luz (do branco frio ao quente) também é controlada dinamicamente para influenciar positivamente no bem-estar e na produtividade dos usuários, respeitando os ciclos circadianos.</p>
+                <p>Invista na modernização do seu imóvel com um sistema que valoriza a decoração e reduz custos com energia elétrica.</p>
+                <p>Seja em residências, escritórios, lojas ou hotéis, a automação de iluminação é um diferencial indispensável.</p>
+                <p>Entre em contato com nossa equipe e agende uma visita para dimensionarmos o projeto ideal para o seu espaço.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Automar Minha Iluminação</a>
+            </div>
+        </article>
+
+        <!-- 4. Som Ambiente -->
+        <article class="service-card" id="som">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/1ffd4fcc-b0e7-43dd-a5d1-82cb20515598.jpg?auth_key=1881823444-91fcd7ce419a45d387114a6923f78033-0-deb9de990c5427e44879753e4ae36abc');"></div>
+            <div class="service-content">
+                <h3>Som Ambiente Automação</h3>
+                <p>O Som Ambiente, quando integrado à automação, eleva a experiência de qualquer ambiente, criando atmosferas únicas e envolventes.</p>
+                <p>Na Automação Residencial SP, instalamos sistemas de áudio multiroom e som ambiente corporativo em São Paulo, permitindo que a música acompanhe você por todos os cômodos da casa ou setores da empresa.</p>
+                <p>Com nossa tecnologia, não há necessidade de aparelhos de som espalhados pelas salas; as caixas de som são estrategicamente embutidas no teto, nas paredes ou disfarçadas na decoração, mantendo o design limpo e elegante.</p>
+                <p>Através de um aplicativo intuitivo no seu smartphone ou tablet, cada membro da família pode selecionar sua própria playlist favorita no Spotify, Apple Music ou rádio online, tocando músicas diferentes em ambientes simultaneamente.</p>
+                <p>Imagine tomar banho ouvindo jazz, enquanto as crianças assistem a um filme na sala e o som ambiente toca uma música clássica na varanda.</p>
+                <p>Em empresas, restaurantes e clínicas em São Paulo, o som ambiente é fundamental para melhorar a experiência do cliente e o bem-estar dos colaboradores.</p>
+                <p>Criamos playlists automáticas que variam conforme o horário do dia, com volume controlado para não atrapalhar conversas.</p>
+                <p>A integração do áudio com o sistema de automação permite que, ao tocar a campainha ou acionar o alarme de incêndio, a música seja pausada ou reduzida automaticamente para facilitar a comunicação.</p>
+                <p>Utilizamos equipamentos de alta fidelidade de marcas renomadas, garantindo graves profundos, agudos nítidos e zero distorção.</p>
+                <p>Nossa equipe avalia a acústica do ambiente para o posicionamento perfeito das caixas, evitando pontos mortos ou ecos.</p>
+                <p>Atendemos toda a região metropolitana e litoral de São Paulo com projetos sob medida, seja para novos imóveis ou reformas.</p>
+                <p>Proporcione momentos de relaxamento, entretenimento e sofisticação para sua família ou clientes com um sistema de som ambiente automatizado de altíssima qualidade.</p>
+                <p>Solicite um orçamento e descubra como a música pode ser ouvida em cada canto com perfeição.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Instalar Som Ambiente</a>
+            </div>
+        </article>
+
+        <!-- 5. Ar Condicionado -->
+        <article class="service-card" id="ar">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/a5220862-f297-41a6-b3b8-9af73f296be7.jpg?auth_key=1881823444-ea278b7dee0249c59c9660852976ec8b-0-b34ce27408bad4b6852967e76250ecbf');"></div>
+            <div class="service-content">
+                <h3>Automação de Ar Condicionado</h3>
+                <p>A Automação de Ar Condicionado é uma solução indispensável para quem busca conforto térmico constante, praticidade e economia financeira.</p>
+                <p>Na Automação Residencial SP, integramos splits e centrais de ar-condicionado aos nossos sistemas de automação residencial e corporativa em São Paulo.</p>
+                <p>Esqueça o trabalho de procurar controles remotos ou chegar em um ambiente gelado ou abafado.</p>
+                <p>Com a nossa tecnologia, você pode ligar, desligar e ajustar a temperatura do ar-condicionado de qualquer lugar do mundo através do seu smartphone.</p>
+                <p>Imagine programar o sistema para que o ar comece a resfriar a sala 15 minutos antes de você chegar do trabalho, garantindo o máximo conforto logo ao adentrar a residência.</p>
+                <p>Durante a noite, o sistema pode ser programado para aumentar gradualmente a temperatura, evitando o frio excessivo e economizando energia.</p>
+                <p>Em ambientes corporativos e escritórios na Grande São Paulo, a automação do ar-condicionado gera reduções drásticas nos custos operacionais.</p>
+                <p>Sensores de presença integrados desligam o equipamento em salas vazias, enquanto sensores de temperatura ajustam a potência de acordo com a lotação do ambiente e a temperatura externa.</p>
+                <p>A integração com persianas automatizadas também impede que o sol quente entre diretamente no cômodo, forçando o ar a trabalhar menos.</p>
+                <p>Nossa equipe de técnicos em São Paulo realiza a instalação de módulos infravermelhos (IR) ou interfaces de comunicação diretamente no sistema de climatização, permitindo o controle centralizado através de painéis touch na parede ou assistentes de voz.</p>
+                <p>Toda a infraestrutura é instalada de forma segura, respeitando as normas técnicas e a garantia dos fabricantes dos aparelhos.</p>
+                <p>Mantenha o ar da sua casa ou empresa sempre na temperatura ideal, com a eficiência que só a automação proporciona.</p>
+                <p>Não desperdice energia climatizando ambientes vazios.</p>
+                <p>Fale agora com nossos especialistas e receba um projeto de climatização inteligente para o seu imóvel.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Automar Meu Ar Condicionado</a>
+            </div>
+        </article>
+
+        <!-- 6. Controle de Acesso -->
+        <article class="service-card" id="acesso">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/f7af0bb2-e0ca-459d-b4b1-8f7c03ffa62d.jpg?auth_key=1881823444-5f51e4986a564b4fa8ce86a50d46c8ff-0-58bb553cd2f73a509f7f956919440c1e');"></div>
+            <div class="service-content">
+                <h3>Controle de Acesso</h3>
+                <p>O Controle de Acesso integrado à automação é a evolução da segurança para residências, condomínios e empresas na cidade de São Paulo.</p>
+                <p>Na Automação Residencial SP, substituímos o método antiquado de chaves por tecnologias de identificação seguras e práticas, como biometria digital, reconhecimento facial, tags de proximidade, senhas e até acesso via smartphone.</p>
+                <p>Nossos sistemas de controle de acesso garantem que apenas pessoas autorizadas transitem pelo seu imóvel.</p>
+                <p>Em residências, você pode desbloquear o portão da garagem e a porta de entrada com as mãos cheias de sacolas apenas usando a digital ou o rosto.</p>
+                <p>Para caseiros, prestadores de serviço ou babás, é possível gerar senhas temporárias com dia e hora marcados para expirar, recebendo notificações no celular toda vez que a porta for aberta.</p>
+                <p>No ambiente corporativo em São Paulo, o controle de acesso é vital para gerenciar a entrada de colaboradores em áreas restritas, como data centers, salas de diretoria e almoxarifados.</p>
+                <p>Integramos catracas, portas giratórias e cancelas aos nossos softwares de automação, permitindo a emissão de relatórios detalhados de presença e horários trabalhados.</p>
+                <p>A grande vantagem de unir o controle de acesso à automação SP é a resposta inteligente do sistema: ao reconhecer o morador na portaria, a automação pode automaticamente acender as luzes do corredor, ligar o ar-condicionado da sala e abrir as persianas, criando um cenário de boas-vindas.</p>
+                <p>Para situações de emergência, como incêndios, o sistema libera todas as saídas automaticamente.</p>
+                <p>Trabalhamos com equipamentos anti-vandalismo e à prova de fraudes, garantindo a máxima segurança do seu patrimônio.</p>
+                <p>Nossa equipe realiza um estudo minucioso do seu fluxo de pessoas para propor a melhor solução tecnológica.</p>
+                <p>Proteja sua família, colaboradores e bens materiais com um controle de acesso de alta performance.</p>
+                <p>Agende uma visita técnica sem compromisso e modernize a segurança do seu imóvel hoje mesmo.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Instalar Controle de Acesso</a>
+            </div>
+        </article>
+
+        <!-- 7. Automação AIRBNB -->
+        <article class="service-card" id="airbnb">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/de201174-350f-49a5-a2f9-e620e90c46c1.jpg?auth_key=1881823444-8ef6bfd1ebc64dc687817fd7bba9635e-0-e03dc6cfd3646921abaf86d38ea4ae53');"></div>
+            <div class="service-content">
+                <h3>Automação AIRBNB</h3>
+                <p>A Automação para AIRBNB é uma tendência crescente em São Paulo e em todo o litoral paulista, revolucionando a forma como anfitriões gerenciam suas propriedades de curta temporada.</p>
+                <p>Na Automação Residencial SP, criamos soluções inteligentes que facilitam a vida do proprietário e encantam os hóspedes.</p>
+                <p>O maior desafio de quem aluga imóveis é a entrega e devolução de chaves.</p>
+                <p>Com o nosso sistema de controle de acesso inteligente, esse problema desaparece.</p>
+                <p>O anfitrião pode gerar senhas temporárias e únicas para cada hóspede, válidas apenas pelo período da reserva.</p>
+                <p>Quando o hóspede sai, a senha expira automaticamente, garantindo a segurança do imóvel para a próxima locação.</p>
+                <p>Além da segurança, a automação AIRBNB permite o controle total das utilidades e do conforto do imóvel a distância.</p>
+                <p>Sensores de presença e de portas e janelas enviam alertas em tempo real caso o hóspede deixe o ar-condicionado ligado ao sair ou tente abrir uma janela restrita.</p>
+                <p>O anfitrião pode monitorar o consumo de energia e até mesmo limitar a potência do ar para evitar desperdícios, impactando diretamente na rentabilidade do aluguel.</p>
+                <p>Para a entrada do hóspede, o sistema pode enviar uma mensagem de boas-vindas: ao digitar a senha na fechadura, a iluminação do corredor acende, o ar começa a resfriar o ambiente e uma playlist suave toca no sistema de som ambiente, criando uma experiência cinco estrelas.</p>
+                <p>Oferecemos suporte para a instalação de termostatos inteligentes, assistentes de voz e até detectors de fumaça conectados à internet.</p>
+                <p>Seja na praia, no campo ou na capital paulista, nossa tecnologia garante a proteção do seu investimento e reduz o trabalho operacional de check-in e check-out.</p>
+                <p>Diferencie seu anúncio na plataforma oferecendo uma hospedagem moderna e tecnológica.</p>
+                <p>Fale com nossa equipe e automatize seu imóvel para locação now!</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Automar Meu AIRBNB</a>
+            </div>
+        </article>
+
+        <!-- 8. Automação BOOKING -->
+        <article class="service-card" id="booking">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/6f226473-7574-4444-88fe-564d2e348a74.jpg?auth_key=1881823444-5ebb406550fa4edf8cae8d6e3fd5a6b9-0-a5b39b442dcd1d7885c87704db9a740f');"></div>
+            <div class="service-content">
+                <h3>Automação BOOKING</h3>
+                <p>Assim como em outras plataformas, a Automação para BOOKING é fundamental para proprietários que desejam maximizar a lucratividade, garantir a segurança e oferecer uma experiência premium aos turistas em São Paulo e no litoral.</p>
+                <p>A Automação Residencial SP desenvolveu pacotes exclusivos de automação corporativa e residencial voltados para a gestão inteligente de imóveis alugados por temporada.</p>
+                <p>Ao anunciar na Booking.com, a concorrência é grande, e os detalhes fazem a diferença nas avaliações dos hóspedes.</p>
+                <p>Nosso sistema elimina a necessidade de encontros presenciais para entrega de chaves através de fechaduras digitais com senhas dinâmicas.</p>
+                <p>O anfitrião recebe a confirmação da reserva, gera a senha com prazo de validade exato e a envia ao hóspede por mensagem, tudo automatizado.</p>
+                <p>Mas a automação vai além do controle de acesso.</p>
+                <p>Implementamos gestores de energia que monitoram o uso de eletricidade do imóvel.</p>
+                <p>Se o hóspede esquecer o ar-condicionado ou as luzes acesas ao sair para a praia ou passear, o proprietário recebe um alerta e pode desligar os equipamentos remotamente, ou o próprio sistema, através de sensores, faz o desligamento automático.</p>
+                <p>Isso evita contas de luz exorbitantes no fim do mês.</p>
+                <p>A automação também inclui sensores de vazamento de água e gás, que cortam o fornecimento imediatamente em caso de anomalia, evitando danos estruturais ao imóvel.</p>
+                <p>Para encantar o hóspede, criamos cenários de "Bem-Vindo": ao destrancar a porta, as persianas sobem, a luz do hall acende em tom quente e o Wi-Fi já está configurado.</p>
+                <p>Auxiliares de voz como Alexa podem ser integrados para que o hóspede controle a iluminação e a música da sala.</p>
+                <p>Nossa equipe cobre toda a região metropolitana, interior e litoral de São Paulo, com instalação rápida e suporte remodo.</p>
+                <p>Eleve a nota do seu imóvel na Booking e fidelize clientes com tecnologia de ponta.</p>
+                <p>Solicite um orçamento e proteja seu imóvel de temporada.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Automar Meu BOOKING</a>
+            </div>
+        </article>
+
+        <!-- 9. Persianas e Cortinas -->
+        <article class="service-card" id="persianas">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/030048ee-71fa-409b-bc4a-19637a35d9b6.jpg?auth_key=1881823444-b92e437f61084c319dcbbc36bd1ac004-0-7818b361dd6d0fa095c49a48ba6345a7');"></div>
+            <div class="service-content">
+                <h3>Automação Persianas e Cortinas</h3>
+                <p>A Automação de Persianas e Cortinas traz elegância, conforto térmico e luminoso, além de um toque de sofisticação indispensável para residências e escritórios modernos em São Paulo.</p>
+                <p>Na Automação Residencial SP, somos especializados em motorizar e integrar todos os tipos de cortinas e persianas do seu imóvel ao sistema de automação central.</p>
+                <p>Esqueça o incômodo de ter que manualmente puxar as cortinas de vãos largos ou janelas difíceis de alcançar.</p>
+                <p>Com nossos motores silenciosos e de alta performance, você pode controlar a entrada de luz natural com o toque de um botão no seu tablet, painel de parede ou através de comandos de voz.</p>
+                <p>A integração com a automação permite a criação de cenários incríveis: ao apertar "Modo Cinema", as persianas descem automaticamente para bloquear a luz externa, criando o ambiente perfeito para o home theater.</p>
+                <p>Pela manhã, o cenário "Acorde" abre as cortinas do quarto lentamente para deixá-lo despertar com a luz do sol.</p>
+                <p>Além da conveniência, a automação de cortinas em São Paulo tem um papel fundamental na eficiência energética.</p>
+                <p>No verão, sensores de luminosidade podem fechar as persianas automaticamente nas horas mais quentes do dia, bloqueando o sol e impedindo que o ambiente aqueça, reduzindo o trabalho do ar-condicionado.</p>
+                <p>No inverno, abrir as cortinas ajuda a aquecer a casa naturalmente.</p>
+                <p>Trabalhamos com os melhores tecidos e mecanismos do mercado, garantindo movimentos suaves e silenciosos que não atrapalham a paz do ambiente.</p>
+                <p>Os motores podem ser embutidos nas paredes ou caixas de persiana, mantendo a estética do ambiente intacta.</p>
+                <p>Nossa equipe realiza medições precisas e instalação profissional em casas, apartamentos e salas comerciais em toda a Grande SP e litoral.</p>
+                <p>Modernize seus ambientes, ganhe privacidade e controle a luz natural de forma inteligente.</p>
+                <p>Fale com nossos especialistas e agende uma avaliação técnica para motorizar suas cortinas.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Motorizar Persianas e Cortinas</a>
+            </div>
+        </article>
+
+        <!-- 10. Internet Cabeada e WI-FI -->
+        <article class="service-card" id="internet">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/a0690535-b2bd-4eab-b697-a84ed66dfacd.jpg?auth_key=1881823444-bf92ea91346a404ca65254acc9fbc8fa-0-e11fd87b2e48efa1c31e976ab0b5e142');"></div>
+            <div class="service-content">
+                <h3>Internet Cabeada e WI-FI</h3>
+                <p>A infraestrutura de rede é o coração de qualquer sistema de automação.</p>
+                <p>Sem uma Internet Cabeada e Wi-Fi robusta, nenhum dispositivo inteligente funciona com a eficiência desejada.</p>
+                <p>Na Automação Residencial SP, projetamos e instalamos redes estruturadas de alta capacidade para residências, escritórios e condomínios em São Paulo.</p>
+                <p>Hoje em dia, ter um simples roteador Wi-Fi em um canto da casa não é mais suficiente para suportar a quantidade de dispositivos conectados: smartphones, TVs, câmeras de segurança, fechaduras, ar-condicionado e assistentes de voz exigem uma rede estável e veloz.</p>
+                <p>Nosso serviço começa com um projeto de cabeamento estruturado (Cat 6 ou superior), levando pontos de rede com fio para todos os cômodos estratégicos.</p>
+                <p>O cabeamento garante a máxima velocidade e zero interferência, essencial para transmissões de vídeos de câmeras CFTV, home theaters e estações de trabalho corporativas.</p>
+                <p>Para a cobertura sem fio, implementamos sistemas de Mesh Wi-Fi ou Access Points de alta performance estrategicamente distribuídos pelo imóvel.</p>
+                <p>Isso elimina as temidas "zonas mortas" onde o sinal não chega, garantindo internet rápida e estável em todos os quartos, varandas, garagens e até na área da piscina.</p>
+                <p>Em empresas na cidade de São Paulo, a rede cabeada também garante a segurança dos dados, permitindo a segregação de redes (uma para visitantes, outra para funcionários e uma isolada para os equipamentos de automação).</p>
+                <p>Configuramos nobreaks para os equipamentos de rede, garantindo que sua automação continue funcionando mesmo durante quedas de energia.</p>
+                <p>Nosso time de técnicos certificados realiza a certificação dos cabos e testes de velocidade, entregando uma rede blindada e ultra veloz.</p>
+                <p>Não deixe a queda de internet arruinar a experiência do seu sistema inteligente.</p>
+                <p>Invista em uma infraestrutura de rede sólida e preparada para o futuro.</p>
+                <p>Clique no botão abaixo e agende uma visita técnica para avaliar a internet do seu imóvel.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Melhorar Meu Wi-Fi e Rede</a>
+            </div>
+        </article>
+
+        <!-- 11. Assistente de Voz -->
+        <article class="service-card" id="voz">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/4652dc9a-ec32-4f91-bacf-98b5e95007a9.jpg?auth_key=1881823444-b18be78f8fe4409b948988fc82cff073-0-78805074f127bbb322409622483b6b32');"></div>
+            <div class="service-content">
+                <h3>Assistente de Voz</h3>
+                <p>A Assistente de Voz é a interface mais natural e fascinante para interagir com sua casa ou empresa inteligente.</p>
+                <p>Na Automação Residencial SP, integramos as principais plataformas do mercado, como Alexa (Amazon), Google Assistente e Siri (Apple), ao seu sistema de automação residencial e corporativa em São Paulo.</p>
+                <p>Com a voz, você assume o controle total do ambiente sem precisar levantar do sofá ou tocar na tela do celular.</p>
+                <p>A magia de dizer "Alexa, ligar o modo jantar" e ver a iluminação diminuir, a música romântica iniciar e as persianas fecharem proporciona um nível de conforto inigualável.</p>
+                <p>Nossos técnicos configuram rotinas complexas que ativam múltiplos dispositivos com uma única frase.</p>
+                <p>Pela manhã, a frase "Ok Google, bom dia" pode acender as luzes do quarto, ler as notícias do dia, aumentar o volume das persianas e iniciar a máquina de café inteligente.</p>
+                <p>Em ambientes corporativos em São Paulo, a assistente de voz agiliza o início de reuniões: "Alexa, iniciar reunião" desliga as luzes, baixa a tela do projetor, liga o sistema de videoconferência e fecha as portas acústicas.</p>
+                <p>A integração de voz também é uma ferramenta poderosa de acessibilidade, permitindo que idosos e pessoas com mobilidade reduzida controlem luzes, TVs e fechaduras com absoluta independência.</p>
+                <p>Além de controlar a automação, as assistentes respondem a perguntas, fazem compras online, informam a previsão do tempo e podem até mesmo intercomunicar ambientes (funcionando como um interfone).</p>
+                <p>Nossa equipe instala os dispositivos em pontos estratégicos para captar o áudio com clareza em toda a casa, respeitando sua privacidade e segurança.</p>
+                <p>O futuro da interação humana com a tecnologia já chegou, e na Automação SP nós tornamos sua casa fluente nesse novo idioma.</p>
+                <p>Desfrute da comodidade de dar comandos à sua casa como se estivesse conversando com um mordomo.</p>
+                <p>Fale com nossos especialistas e traga a inteligência por voz para o seu dia a dia.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Integrar Assistente de Voz</a>
+            </div>
+        </article>
+
+        <!-- 12. Energia Solar -->
+        <article class="service-card" id="solar">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/06ce940d-f4c8-4874-baae-3e37c73ae264.jpg?auth_key=1881823444-a9ea197f9e284a0b990ce51c5bff3aca-0-b4c00b0b989efd98e054480c9d21ddb0');"></div>
+            <div class="service-content">
+                <h3>Energia Solar com Automação</h3>
+                <p>A integração da Energia Solar com Automação é o auge da sustentabilidade, eficiência e economia para imóveis em São Paulo.</p>
+                <p>Na Automação Residencial SP, não apenas instalamos painéis fotovoltaicos, mas os conectamos de forma inteligente ao seu sistema de automação residencial e corporativa, criando uma verdadeira usina de gestão de energia.</p>
+                <p>Com a automação, você tem total visibilidade da produção e consumo de energia do seu imóvel em tempo real, através de painéis de controle touch ou aplicativos de smartphone.</p>
+                <p>O sistema automatizado toma decisões inteligentes para maximizar a economia: por exemplo, ele programas o funcionamento de equipamentos que consomem muita energia, como bombas de piscina, máquinas de lavar e aquecedores, para operarem exclusivamente nos horários de pico de produção solar, quando a geração de energia está no máximo.</p>
+                <p>Em ambientes corporativos na Grande SP, a gestão inteligente de energia fotovoltaica garante o retorno do investimento de forma muito mais rápida, já que o sistema automatiza o desligamento de cargas não essenciais quando há queda na geração solar, evitando o consumo da rede elétrica pública.</p>
+                <p>Além disso, a automação monitora a saúde dos inversores e baterias, enviando alertas de manutenção preventiva para a nossa central técnica em São Paulo.</p>
+                <p>Combinando baterias de armazenamento (solar off-grid) com a automação, garantimos que sua casa ou empresa continuem funcionando perfeitamente mesmo durante blecautes na concessionária, ligando automaticamente circuitos essenciais como geladeiras, iluminação e internet.</p>
+                <p>A sustentabilidade ganha um aliado tecnológico de peso, reduzindo a pegada de carbono do seu imóvel e valorizando o seu patrimônio com tecnologia de ponta verde.</p>
+                <p>Nossa equipe de engenheiros executa o projeto elétrico, a instalação mecânica dos painéis e a configuração lógica do software de gestão.</p>
+                <p>Junte a força do sol com a inteligência da automação.</p>
+                <p>Fale agora com nossos especialistas e receba um projeto de energia solar inteligente para o seu imóvel.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Quero Energia Solar Inteligente</a>
+            </div>
+        </article>
+
+        <!-- 13. Home Theater -->
+        <article class="service-card" id="hometheater">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/030048ee-71fa-409b-bc4a-19637a35d9b6.jpg?auth_key=1881823444-b92e437f61084c319dcbbc36bd1ac004-0-7818b361dd6d0fa095c49a48ba6345a7');"></div>
+            <div class="service-content">
+                <h3>Home Theater e Áudio Multiroom</h3>
+                <p>Transforme sua sala de estar em um verdadeiro cinema com os serviços de Home Theater e Áudio Multiroom da Automação Residencial SP.</p>
+                <p>Nossa especialidade em São Paulo é criar ambientes de entretenimento imersivos, onde a qualidade do som e da imagem é elevada ao máximo nível de excelência.</p>
+                <p>Projetamos e instalamos sistemas de home theater sob medida, levando em consideração a acústica do ambiente, o posicionamento das caixas de som, a escolha do projetor ou TV ideal e o controle de luzes e persianas para garantir a melhor experiência cinematográfica.</p>
+                <p>Com a integração inteligente, você não precisa de vários controles remotos: um único tablet ou smartphone gerencia todo o sistema, permitindo criar cenários como "Modo Filme", onde as luzes diminuem, a tela desce e o projetor liga automaticamente.</p>
+                <p>Além do cinema em casa, o nosso sistema de Áudio Multiroom permite que você distribua música para todos os cômodos da residência.</p>
+                <p>Cada membro da família pode ouvir sua própria playlist em diferentes ambientes, como na cozinha, no quarto ou na área externa, tudo controlado pelo celular.</p>
+                <p>Utilizamos equipamentos de marcas premium, garantindo uma clareza sonora impressionante, graves profundos e zero distorção.</p>
+                <p>Nossos técnicos especializam-se em instalações discretas, com caixas de som embutidas no teto ou paredes, mantendo a decoração do seu imóvel intacta e elegante.</p>
+                <p>Para os amantes de música, a integração com serviços de streaming é feita de forma intuitiva e rápida.</p>
+                <p>Atendemos toda a região metropolitana de São Paulo, levando lazer e tecnologia de ponta para o seu dia a dia.</p>
+                <p>Não importa se você está construindo ou reformando, nossas soluções são adaptáveis a qualquer projeto arquitetônico.</p>
+                <p>Desfrute de momentos de descontração com qualidade de som incomparável e imagens em altíssima definição.</p>
+                <p>Quer elevar o nível de entretenimento da sua casa com um Home Theater perfeito e som ambiente integrado?</p>
+                <p>Fale com nossos especialistas agora mesmo e receba um projeto exclusivo para o seu espaço.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Criar meu Home Theater</a>
+            </div>
+        </article>
+
+        <!-- 14. Segurança -->
+        <article class="service-card" id="seguranca">
+            <div class="service-img" style="background-image: url('https://z-cdn-media.chatglm.cn/files/f7af0bb2-e0ca-459d-b4b1-8f7c03ffa62d.jpg?auth_key=1881823444-5f51e4986a564b4fa8ce86a50d46c8ff-0-58bb553cd2f73a509f7f956919440c1e');"></div>
+            <div class="service-content">
+                <h3>Sistemas de Segurança e CFTV</h3>
+                <p>A segurança do seu patrimônio e de sua família não pode ser deixada em segundo plano.</p>
+                <p>Na Automação Residencial SP, oferecemos Sistemas de Segurança Eletrônica e CFTV integrados à automação residencial e corporativa, proporcionando tranquilidade total 24 horas por dia.</p>
+                <p>Nossos projetos de segurança em São Paulo incluem a instalação de câmeras de alta definição (Full HD e 4K), com visão noturna e detecção de movimento, que podem ser acessadas ao vivo de qualquer lugar do mundo através do seu smartphone.</p>
+                <p>Implementamos sistemas de controle de acesso avançados, com leitores biométricos, reconhecimento facial, catracas e fechaduras inteligentes, garantindo que apenas pessoas autorizadas adentrem o seu imóvel ou empresa.</p>
+                <p>Além disso, instalamos sensores de presença, abertura de portas e janelas, bem como cercas elétricas e centrais de alarme monitoradas.</p>
+                <p>A grande vantagem de integrar a segurança à automação é a resposta inteligente a incidentes: caso um sensor seja acionado, o sistema pode automaticamente acender as luzes externas, fechar os portões, disparar alarmes estridentes e enviar notificações push imediatas para o seu celular.</p>
+                <p>Para empresas em São Paulo e Grande SP, nossos sistemas de CFTV contam com armazenamento em NVRs de alta capacidade e nuvem, garantindo que nenhuma informação seja perdida.</p>
+                <p>Oferecemos também projetos de monitoramento por vídeo analítico, que utilizam inteligência artificial para identificar invasores, reconhecer placas de veículos e contar fluxo de pessoas.</p>
+                <p>Nossa equipe realiza o estudo das vulnerabilidades do seu local para propor a melhor solução de segurança eletrônica, sempre utilizando mão de obra certificada e equipamentos de procedência garantida.</p>
+                <p>Manutenções preventivas e suporte técnico ágil são diferenciais que mantêm seu sistema sempre operante.</p>
+                <p>Proteja o que é mais importante para você com tecnologia de ponta e monitoramento contínuo.</p>
+                <p>Não espere por um imprevisto para garantir a segurança do seu imóvel.</p>
+                <p>Clique no botão abaixo e agende uma visita técnica para avaliarmos suas necessidades de segurança e elaborarmos um orçamento sem compromisso.</p>
+                <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Proteger meu Patrimônio</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- Credit Section -->
+    <section class="credit-section">
+        <p>Desenvolvido com excelência em SEO por: <a href="https://www.fernandocoutinho.com/sobre">Agência de SEO em São Paulo</a></p>
+    </section>
+
+    <!-- Business Hours -->
+    <section class="hours-section">
+        <h2>Horário de Atendimento</h2>
+        <p>Escalas 5x2: Segunda a Sexta, das 08h às 18h.</p>
+        <p style="font-size: 1rem; color: var(--text-light);">Plantão de emergências para clientes via aplicativo.</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="depoimentos" class="container">
+        <div class="center-title">
+            <h2>Depoimentos de Clientes</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"A Automação SP transformou minha casa em São Paulo. Controle tudo pelo celular é surreal. A equipe foi super profissional e os acabamentos ficaram perfeitos. Recomendo demais!"</p>
+                <h4>- Carlos Eduardo, Morumbi</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Implantamos a automação corporativa na nossa sede em Santo André. As salas de reunião ficaram práticas e reduzimos o gasto com energia elétrica significativamente. Investimento que se paga."</p>
+                <h4>- Mariana Costa, CEO</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"O sistema de Home Theater instalado na minha casa superou todas as expectativas. A qualidade do som multiroom e a imagem são de cinema. Atendimento nota 10 do início ao fim!"</p>
+                <h4>- Rafael Lima, Alphaville</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cities Cluster Atualizado com 150 palavras e 2 CTAs -->
+    <section id="cidades" class="container">
+        <div class="center-title">
+            <h2>Áreas de Atendimento</h2>
+        </div>
+
+        <div id="grande-sp" style="margin-bottom: 3rem;">
+            <h3 style="color: var(--accent); margin-bottom: 2rem; text-align: center;">Região Metropolitana de São Paulo</h3>
+            <div class="cluster-grid">
                 
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Protocolo</th>
-                            <th>Vantagens Principais</th>
-                            <th>Aplicações Ideais</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Wi-Fi</td>
-                            <td>Alta velocidade de transmissão, instalação facilitada</td>
-                            <td>Controle remoto, transmissão multimídia</td>
-                        </tr>
-                        <tr>
-                            <td>Zigbee</td>
-                            <td>Baixo consumo energético, arquitetura em malha</td>
-                            <td>Sensores múltiplos, dispositivos de baixa potência</td>
-                        </tr>
-                        <tr>
-                            <td>Z-Wave</td>
-                            <td>Alcance expandido, compatibilidade universal</td>
-                            <td>Sistemas de segurança, automação generalizada</td>
-                        </tr>
-                        <tr>
-                            <td>Bluetooth</td>
-                            <td>Pareamento direto, custo acessível</td>
-                            <td>Dispositivos pessoais, operação local</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- São Paulo -->
+                <div class="cluster-card">
+                    <h4>São Paulo</h4>
+                    <p>A cidade de São Paulo é o principal centro de negócios e residencial do Brasil, exigindo soluções de automação de alto padrão.</p>
+                    <p>Na Automação Residencial SP, atendemos toda a capital paulista, desde bairros nobres como Jardins, Morumbi e Itaim Bibi, até condomínios em zonas mais afastadas.</p>
+                    <p>Nossos serviços de automação residencial em São Paulo incluem a integração de iluminação inteligente, sistemas de segurança com CFTV de alta definição, controle de acesso biométrico e climatização automatizada para apartamentos e casas.</p>
+                    <p>Para o segmento corporativo, automatizamos escritórios no centro expandido e na Faria Lima, otimizando salas de reunião e reduzindo custos operacionais com gestão de energia.</p>
+                    <p>A densidade urbana exige infraestruturas de rede Wi-Fi robustas, e nós garantimos uma conexão estável para todos os seus dispositivos inteligentes.</p>
+                    <p>Leve mais conforto, tecnologia e segurança para o seu imóvel na capital com a nossa equipe especializada.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para São Paulo</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-sao-paulo-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SÃO PAULO</a>
+                    </div>
+                </div>
+
+                <!-- Guarulhos -->
+                <div class="cluster-card">
+                    <h4>Guarulhos</h4>
+                    <p>Guarulhos, segundo município mais populoso do estado e lar do principal aeroporto do Brasil, possui uma dinâmica imobiliária e corporativa intensa.</p>
+                    <p>A Automação Residencial SP leva para Guarulhos soluções tecnológicas que atendem desde grandes indústrias até residências familiares.</p>
+                    <p>Implementamos sistemas de controle de acesso rigorosos para empresas logísticas e automatizamos o conforto de casas no entorno do centro e bairros como Macedo.</p>
+                    <p>Com a automação residencial em Guarulhos, você integra câmeras de segurança, iluminação e ar-condicionado em um único aplicativo, gerenciando seu imóvel de qualquer lugar.</p>
+                    <p>Sabemos que a rotina agitada da cidade exige praticidade, por isso nossos projetos são desenhados para facilitar o dia a dia, como ligar as luzes e abrir o portão automaticamente ao chegar em casa.</p>
+                    <p>Garantimos também infraestrutura de internet estável para suportar todos os dispositivos conectados.</p>
+                    <p>Ofereça mais segurança e modernidade ao seu imóvel em Guarulhos com tecnologia de ponta e instalação profissional.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Guarulhos</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-guarulhos-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM GUARULHOS</a>
+                    </div>
+                </div>
+
+                <!-- Osasco -->
+                <div class="cluster-card">
+                    <h4>Osasco</h4>
+                    <p>Osasco destaca-se como um importante polo corporativo e residencial na Grande São Paulo, abrigando sedes de grandes empresas e condomínios modernos.</p>
+                    <p>A Automação Residencial SP oferece projetos inteligentes para escritórios e lares em Osasco, focando em eficiência e estética.</p>
+                    <p>Para empresas, automatizamos salas de reunião, controle de acesso de colaboradores e gestão de energia, reduzindo custos.</p>
+                    <p>Em residências, integramos iluminação cênica, som ambiente e sistemas de segurança CFTV acessíveis pelo smartphone.</p>
+                    <p>A automação residencial em Osasco é a solução ideal para quem busca modernidade e comodidade, permitindo criar cenários personalizados como "Modo Cinema" ou "Modo Receber".</p>
+                    <p>Nossa equipe técnica avalia a estrutura do seu imóvel para propor a melhor solução com fio ou sem fio, garantindo que a decoração não seja comprometida.</p>
+                    <p>Transforme seu apartamento ou casa em Osasco em um ambiente verdadeiramente inteligente, seguro e econômico.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Osasco</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-osasco-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM OSASCO</a>
+                    </div>
+                </div>
+
+                <!-- Suzano -->
+                <div class="cluster-card">
+                    <h4>Suzano</h4>
+                    <p>Suzano, localizada na região do Alto Tietê, mistura o charme do interior com a proximidade da capital, atraindo muitas famílias em busca de qualidade de vida em condomínios e casas amplas.</p>
+                    <p>A Automação Residencial SP leva tecnologia de ponta para Suzano, focando em segurança eletrônica e conforto térmico.</p>
+                    <p>Nossos serviços de automação residencial em Suzano incluem o fechamento de portões, controle de iluminação e monitoramento por câmeras em tempo real, ideal para quem viaja e deseja deixar a casa protegida.</p>
+                    <p>Além disso, integramos assistentes de voz e sistemas de som ambiente para que sua casa seja o principal centro de entretenimento da família.</p>
+                    <p>Atendemos também o comércio local com automação corporativa, otimizando o consumo de energia e facilitando a gestão do estabelecimento.</p>
+                    <p>Desfrute de toda a tranquilidade que Suzano oferece sem abrir mão da conectividade e da segurança de um imóvel inteligente.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Suzano</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-suzano-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SUZANO</a>
+                    </div>
+                </div>
+
+                <!-- Santo André -->
+                <div class="cluster-card">
+                    <h4>Santo André</h4>
+                    <p>Santo André é um dos municípios mais importantes do ABC Paulista, com forte presença industrial, comercial e residencial.</p>
+                    <p>Na Automação Residencial SP, automatizamos desde apartamentos no centro até casas em bairros como Jardim e Paranapiacaba.</p>
+                    <p>Nossa automação residencial em Santo André engloba sistemas de segurança integrados, como cercas elétricas e câmeras, além de climatização inteligente que reduz o gasto de energia.</p>
+                    <p>Para a indústria e o varejo andreense, oferecemos controle de acesso biométrico e automação de salas limpas e galpões logísticos.</p>
+                    <p>Sabemos que a região exige soluções robustas, por isso utilizamos equipamentos de alta durabilidade e padrões internacionais.</p>
+                    <p>Controle as persianas, a iluminação e o ar-condicionado da sua casa em Santo André com um toque no celular, criando ambientes perfeitos para cada momento do dia.</p>
+                    <p>Modernize seu imóvel com a melhor empresa de automação da região metropolitana de São Paulo.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Santo André</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-santo-andre-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SANTO ANDRÉ</a>
+                    </div>
+                </div>
+
+                <!-- São Caetano do Sul -->
+                <div class="cluster-card">
+                    <h4>São Caetano do Sul</h4>
+                    <p>São Caetano do Sul destaca-se por ter um dos maiores Índices de Desenvolvimento Humano (IDH) do Brasil, abrigando residências de altíssimo padrão e empresas de tecnologia.</p>
+                    <p>A Automação Residencial SP é referência em automação residencial em São Caetano do Sul, oferecendo projetos que unem luxo, design e tecnologia.</p>
+                    <p>Integramos sofisticados sistemas de iluminação cênica, home theaters imersivos e redes Wi-Fi de alta performance para coberturas e casas no município.</p>
+                    <p>No quesito segurança, implementamos reconhecimento facial e câmeras 4K, garantindo a tranquilidade das famílias caetanenses.</p>
+                    <p>Para o setor corporativo local, criamos salas de reunião automatizadas onde projetores, telas e videoconferências são acionadas com um único toque.</p>
+                    <p>Nosso compromisso é entregar sistemas invisíveis à arquitetura, mas perceptíveis na qualidade de vida.</p>
+                    <p>Se você busca o ápice em conforto e modernidade para seu imóvel em São Caetano do Sul, nossa equipe está pronta para desenvolver um projeto sob medida.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para São Caetano</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-sao-caetano-do-sul-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SÃO CAETANO DO SUL</a>
+                    </div>
+                </div>
+
+                <!-- São Bernardo do Campo -->
+                <div class="cluster-card">
+                    <h4>São Bernardo do Campo</h4>
+                    <p>São Bernardo do Campo é o coração industrial do ABC Paulista, conhecido por suas grandes montadoras e por abrigar bairros nobres como Alphaville e Montanhão.</p>
+                    <p>A Automação Residencial SP atende São Bernardo com soluções completas de automação residencial e corporativa.</p>
+                    <p>Em residências, instalamos sistemas que controlam iluminação, ar-condicionado, persianas e segurança, criando cenários perfeitos para o lazer e o descanso.</p>
+                    <p>A automação residencial em São Bernardo do Campo é fundamental para quem viaja a trabalho e deseja monitorar a casa remotamente.</p>
+                    <p>Para as indústrias e empresas locais, oferecemos automação de galpões, controle de acesso de funcionários, catracas e CFTV com armazenamento em nuvem, garantindo a segurança do patrimônio.</p>
+                    <p>Nossos técnicos são altamente capacitados para lidar com a complexidade de projetos em grandes áreas, entregando infraestrutura de rede e automação sem falhas.</p>
+                    <p>Leve inovação e praticidade para seu imóvel em São Bernardo do Campo com a Automação SP.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para São Bernardo</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-sao-bernardo-do-campo-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SÃO BERNARDO DO CAMPO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="interior" style="margin-bottom: 3rem;">
+            <h3 style="color: var(--accent); margin-bottom: 2rem; text-align: center;">Interior de São Paulo</h3>
+            <div class="cluster-grid">
                 
-                <p>As centrais de gerenciamento integram todos os equipamentos conectados em uma interface única e amigável, proporcionando experiência excepcional ao usuário. Cada metodologia apresenta benefícios específicos conforme as necessidades: configurações locais garantem maior segurança e operação independente de internet, ao passo que sistemas em nuvem viabilizam acesso ilimitado à distância e atualizações automáticas de firmware.</p>
-            </div>
-        </section>
-
-        <section class="investment-box">
-            <h2>Investimento e Retorno Financeiro</h2>
-            <p>O capital necessário para implementar automação residencial varia conforme as dimensões do imóvel e a sofisticação do sistema pretendido. Contudo, o retorno sobre o investimento se manifesta de forma significativa em múltiplas dimensões. Diversos elementos influenciam o custo total: metragem e complexidade arquitetônica da residência, quantidade de equipamentos a serem automatizados, grau de customização e integração requerido, escolha de fabricantes e modelos específicos, e se a implementação ocorrerá em construção nova ou em imóvel existente.</p>
-            
-            <p>Além da economia substancial com energia elétrica, a automação diminui despesas com manutenção preventiva, apólices de seguro e incrementa significativamente a valorização imobiliária, gerando retorno financeiro consistente ao longo do tempo. As vantagens econômicas se expressam de diversas maneiras: economia energética com redução de 20-30% nas contas de luz, segurança patrimonial com diminuição de sinistros e prêmios de seguro reduzidos, valorização com acréscimo de 5-15% no valor de mercado, e manutenção com prevenção de falhas e custos operacionais minimizados.</p>
-            
-            <p>Para quem prioriza sustentabilidade, a combinação da automação residencial com geração de energia solar representa uma união perfeita entre tecnologia e consciência ambiental. Esta integração permite não somente economizar energia, mas também produzir sua própria eletricidade, minimizando drasticamente os gastos mensais com fornecimento energético.</p>
-        </section>
-
-        <section class="future-section">
-            <h2>Perspectivas para a Automação Residencial</h2>
-            <p>O mercado de automação doméstica está em permanente transformação, com inovações e tendências que prometem revolucionar ainda mais a experiência dos usuários nas principais metrópoles brasileiras. A incorporação de inteligência artificial permite que os sistemas aprendam os padrões de comportamento dos moradores, realizando ajustes automáticos nas configurações para otimizar conforto e eficiência operacional.</p>
-            
-            <p>A automação residencial futura será capaz de prever as necessidades dos habitantes antes mesmo que elas sejam percebidas conscientemente. A ampliação da Internet das Coisas está conectando progressivamente mais equipamentos domésticos à rede, estabelecendo ecossistemas inteligentes que interagem entre si e com os usuários de forma fluida e natural.</p>
-            
-            <p>Aplicações emergentes contemplam eletrodomésticos inteligentes completamente integrados, assistentes virtuais com capacidades ampliadas, gerenciamento preditivo para manutenção preventiva e integração com automóveis e infraestrutura de mobilidade urbana. A automação residencial contemporânea é desenvolvida para ser compatível com a vasta maioria dos smartphones e dispositivos móveis existentes no mercado.</p>
-        </section>
-
-        <section class="cta-banner">
-            <h2>Comece Sua Transformação Digital</h2>
-            <p>Experimente os benefícios da tecnologia residencial de ponta</p>
-            <a href="https://www.perplexity.ai/page/smart-atlantics-brasil-online-bO.evRmZTbiYm9aeboFw9Q" target="_blank" rel="noopener noreferrer" class="action-btn">Solicite uma Consulta Gratuita</a>
-        </section>
-
-        <section class="resources-area">
-            <h3>Explore Mais Sobre Residências Conectadas</h3>
-            <p>Descubra como a inovação tecnológica pode transformar seu ambiente doméstico:</p>
-            <div class="resource-links">
-                <div class="resource-card">
-                    <a href="https://www.perplexity.ai/page/smart-atlantics-brasil-online-bO.evRmZTbiYm9aeboFw9Q" target="_blank" rel="noopener noreferrer">Automação Residencial</a>
+                <!-- Jundiaí -->
+                <div class="cluster-card">
+                    <h4>Jundiaí</h4>
+                    <p>Jundiaí é uma cidade em constante crescimento, estrategicamente localizada entre a capital e a região de Campinas, conhecida por suas vinícolas e qualidade de vida.</p>
+                    <p>A Automação Residencial SP traz para Jundiaí projetos de automação que valorizam o conforto e a segurança de chácaras, sítios e casas de condomínio.</p>
+                    <p>Com nossa automação residencial em Jundiaí, você pode automatizar o controle de irrigação de jardins, iluminação externa de grande porte e segurança perimetral, essenciais para imóveis maiores.</p>
+                    <p>Para empresas e galpões logísticos da região, oferecemos automação corporativa focada em gestão de energia e monitoramento por câmeras de alta definição.</p>
+                    <p>Nosso time projeta redes Wi-Fi de longo alcance para cobrir toda a extensão do terreno, garantindo que você controle os dispositivos inteligentes de qualquer canto da propriedade.</p>
+                    <p>Desfrute do clima agradável de Jundiaí com uma casa inteligente que cuida de tudo para você, desde ajustar a temperatura até tocar sua música favorita na chegada.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Jundiaí</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-jundiai-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM JUNDIAÍ</a>
+                    </div>
                 </div>
-                <div class="resource-card">
-                    <a href="https://automacao-residencial-sp.netlify.app/" target="_blank" rel="noopener noreferrer">Automação Residencial em São Paulo</a>
-                </div>
-                <div class="resource-card">
-                    <a href="https://automacao-residencial-em-campinas.netlify.app/" target="_blank" rel="noopener noreferrer">Automação Residencial em Campinas</a>
-                </div>
-            </div>
-        </section>
 
-        <section class="questions-section">
-            <h2>Perguntas Mais Comuns</h2>
-            <div class="question-block">
-                <div class="question-title">1. De que forma opera a automação residencial?</div>
-                <div class="question-text">A automação residencial consiste em um conjunto de sistemas que viabilizam o controle e monitoramento de diversos equipamentos e dispositivos da sua habitação através de uma interface centralizada, como smartphones, tablets ou assistentes virtuais. Ela integra tecnologias como Internet das Coisas (IoT), sensores inteligentes e atuadores para estabelecer um ambiente adaptativo e responsivo.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">2. Quais são os principais benefícios da automação residencial?</div>
-                <div class="question-text">Os benefícios principais englobam incremento expressivo de praticidade e conforto, economia de energia elétrica (alcançando até 30%), proteção aprimorada com vigilância contínua, controle remoto de qualquer localização e valorização significativa do imóvel no mercado.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">3. É viável automatizar uma casa já construída?</div>
-                <div class="question-text">Sim, é perfeitamente viável automatizar imóveis já edificados. Existem soluções desenvolvidas especificamente para retrofit que empregam tecnologias wireless, dispensando reformas estruturais invasivas. A automação pode ser implementada progressivamente, iniciando com setores específicos da habitação.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">4. Qual o tempo necessário para instalação de um sistema automatizado?</div>
-                <div class="question-text">O tempo varia conforme a sofisticação do sistema e as dimensões da residência. Para uma automação elementar em uma casa de porte médio, a instalação pode demandar de 2 a 5 dias úteis. Sistemas mais sofisticados e abrangentes podem requerer de 1 a 3 semanas.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">5. Meu dispositivo móvel é compatível com automação residencial?</div>
-                <div class="question-text">Sim, os sistemas contemporâneos são projetados para compatibilidade com a maioria dos smartphones e dispositivos móveis disponíveis, oferecendo aplicativos nativos para plataformas iOS e Android com interfaces intuitivas e recursos completos.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">6. Quais são os protocolos de comunicação mais utilizados?</div>
-                <div class="question-text">Os protocolos mais empregados incluem Wi-Fi (alta velocidade de transmissão), Zigbee (baixo consumo energético, arquitetura em malha), Z-Wave (maior alcance, interoperabilidade entre fabricantes) e Bluetooth (conexão direta). A seleção depende das necessidades particulares de cada dispositivo e aplicação.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">7. O sistema opera sem conexão com a internet?</div>
-                <div class="question-text">Sim, a maioria dos sistemas é projetada para funcionar localmente mesmo sem acesso à internet. As automações configuradas, como acionamento por sensores de presença e programações horárias, permanecem operacionais normalmente, garantindo que os sistemas críticos não sejam interrompidos.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">8. De que maneira a automação promove economia energética?</div>
-                <div class="question-text">A automação economiza energia através de sensores de presença que desativam iluminação automaticamente, controladores térmicos inteligentes que regulam a temperatura baseando-se na ocupação efetiva, e programação temporal para equipamentos, otimizando seu funcionamento e eliminando desperdícios.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">9. A automação residencial oferece segurança? Como proteger informações pessoais?</div>
-                <div class="question-text">A segurança é prioritária. Recomenda-se a utilização de senhas robustas e complexas, autenticação em dois fatores, atualização periódica de firmwares e softwares, segmentação da rede Wi-Fi e seleção de fabricantes comprometidos com segurança e criptografia de informações pessoais.</div>
-            </div>
-            <div class="question-block">
-                <div class="question-title">10. É possível expandir meu sistema automatizado futuramente?</div>
-                <div class="question-text">Sim, os sistemas modernos são desenvolvidos para serem escaláveis e expansíveis. Eles utilizam arquiteturas modulares e são compatíveis com padrões abertos, possibilitando adicionar novos dispositivos e funcionalidades conforme suas necessidades evoluem progressivamente.</div>
-            </div>
-        </section>
-    </div>
+                <!-- Campinas -->
+                <div class="cluster-card">
+                    <h4>Campinas</h4>
+                    <p>Campinas é o maior município do interior de São Paulo, um polo tecnológico, universitário e industrial que exige soluções de automação de nível mundial.</p>
+                    <p>A Automação Residencial SP é parceira de famílias e empresas campineiras na implementação de sistemas inteligentes.</p>
+                    <p>Nossa automação residencial em Campinas abrange desde a integração de assistentes de voz e controle de iluminação cênica, até a instalação de redes estruturadas de alta performance e CFTV analítico com inteligência artificial.</p>
+                    <p>Para a forte rede corporativa de Campinas, automatizamos salas limpas, escritórios no centro e polo tecnológico, focando em eficiência energética.</p>
+                    <p>Sabemos que a cidade é um berço de inovação, e nossa missão é manter os imóveis campineiros à frente do seu tempo.</p>
+                    <p>Oferecemos suporte técnico ágil e manutenção preventiva para garantir que seu sistema inteligente funcione 24 horas por dia.</p>
+                    <p>Leve a melhor tecnologia de automação para sua casa ou empresa em Campinas.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Campinas</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-campinas-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM CAMPINAS</a>
+                    </div>
+                </div>
 
-    <footer class="page-footer">
-        <div class="wrapper">
-            <p>2025 Automação Residencial. Todos os direitos reservados.</p>
-            <p>Transformando residências em ambientes inteligentes com tecnologia avançada e inovação contínua.</p>
+                <!-- Piracicaba -->
+                <div class="cluster-card">
+                    <h4>Piracicaba</h4>
+                    <p>Piracicaba, conhecida como a "Noiva da Colina", é um município que mistura tradição, agronegócio e forte parque industrial.</p>
+                    <p>Na Automação Residencial SP, adaptamos nossos projetos para atender às necessidades das residências e empresas piracicabanas.</p>
+                    <p>A automação residencial em Piracicaba é muito procurada para o controle de iluminação, ar-condicionado e segurança em condomínios e casas de campo.</p>
+                    <p>Implementamos sistemas que gerenciam o consumo de água e energia, ajudando na sustentabilidade do imóvel.</p>
+                    <p>No setor corporativo, atendemos indústrias e faculdades locais com controle de acesso biométrico, automação de auditórios e redes de internet de alta velocidade.</p>
+                    <p>Nossos técnicos avaliam as características arquitetônicas da cidade, garantindo instalações discretas que preservam o estilo do imóvel.</p>
+                    <p>Seja na região central ou nos bairros mais afastados, levamos tecnologia de ponta para facilitar a rotina das famílias e otimizar os processos das empresas em Piracicaba.</p>
+                    <p>Modernize seu espaço com a Automação SP.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Piracicaba</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-piracicaba-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM PIRACICABA</a>
+                    </div>
+                </div>
+
+                <!-- Sorocaba -->
+                <div class="cluster-card">
+                    <h4>Sorocaba</h4>
+                    <p>Sorocaba é um dos principais polos industriais e tecnológicos do interior paulista, com um mercado imobiliário em franca expansão.</p>
+                    <p>A Automação Residencial SP oferece sistemas de automação residencial em Sorocaba que atendem à demanda por imóveis mais modernos e seguros.</p>
+                    <p>Integramos câmeras de monitoramento, fechaduras digitais e controle de iluminação e som ambiente, tudo gerenciado por aplicativos de celular ou painéis touch.</p>
+                    <p>Para as indústrias sorocabanas, nossa automação corporativa foca em controle de acesso de veículos em pátios, gestão de energia e climatização de escritórios.</p>
+                    <p>A infraestrutura de rede que implementamos é preparada para suportar grande volume de dados, indispensável para o funcionamento de fábricas e lares conectados.</p>
+                    <p>Nosso time de engenheiros e instaladores atende todo o município, oferecendo projetos sob medida que valorizam o imóvel e proporcionam economia financeira através da gestão inteligente de recursos.</p>
+                    <p>Descubra como a automação pode transformar sua casa ou empresa em Sorocaba.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Sorocaba</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-sorocaba-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SOROCABA</a>
+                    </div>
+                </div>
+
+                <!-- Ribeirão Preto -->
+                <div class="cluster-card">
+                    <h4>Ribeirão Preto</h4>
+                    <p>Ribeirão Preto, conhecida como a "California Brasileira", é uma das cidades mais ricas do interior, com excelente infraestrutura e alto padrão de vida.</p>
+                    <p>A Automação Residencial SP traz para Ribeirão Preto projetos exclusivos de automação, focando em sofisticação e conforto.</p>
+                    <p>Nossa automação residencial em Ribeirão Preto inclui a instalação de home theaters premium, redes Wi-Fi de alta performance para coberturas e condomínios, e sistemas de segurança eletrônica com monitoramento remoto.</p>
+                    <p>Para o forte setor corporativo e de saúde da cidade, automatizamos clínicas, consultórios e escritórios com controle de acesso, iluminação cênica e gestão de energia.</p>
+                    <p>Sabemos que o ribeirão-pretense busca o melhor, e nossos equipamentos são de marcas top de linha, garantindo durabilidade e excelente desempenho.</p>
+                    <p>Controle a temperatura, a iluminação e o áudio do seu imóvel com comandos de voz ou pelo smartphone, elevando seu estilo de vida a um novo patamar.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Ribeirão Preto</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-ribeirao-preto-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM RIBEIRÃO PRETO</a>
+                    </div>
+                </div>
+
+                <!-- Bauru -->
+                <div class="cluster-card">
+                    <h4>Bauru</h4>
+                    <p>Bauru, localizada no centro-oeste paulista, é um importante entroncamento rodoviário e polo universitário, atraindo estudantes e famílias em busca de qualidade de vida.</p>
+                    <p>A Automação Residencial SP atende Bauru com soluções de automação residencial que primam pela segurança e praticidade.</p>
+                    <p>Automatizamos apartamentos e casas na cidade com sistemas de controle de iluminação, ar-condicionado e câmeras de segurança acessíveis via internet.</p>
+                    <p>A automação residencial em Bauru é ideal para quem viaja frequentemente ou possui imóveis alugados para estudantes, permitindo o controle remoto de acessos e o monitoramento do consumo de energia.</p>
+                    <p>Oferecemos também assistentes de voz e redes Wi-Fi estáveis para suportar a rotina conectada dos universitários e profissionais locais.</p>
+                    <p>Nossa equipe instala tecnologias discretas que se adaptam perfeitamente à decoração do imóvel.</p>
+                    <p>Garanta a segurança do seu patrimônio e eleve o conforto do seu imóvel em Bauru com nossas soluções inteligentes.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Bauru</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-bauru-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM BAURU</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="litoral">
+            <h3 style="color: var(--accent); margin-bottom: 2rem; text-align: center;">Litoral Paulista</h3>
+            <div class="cluster-grid">
+                
+                <!-- Santos -->
+                <div class="cluster-card">
+                    <h4>Santos</h4>
+                    <p>Santos é o principal porto da América Latina e possui o maior jardim de orla de praia do mundo.</p>
+                    <p>A cidade combina a agitação portuária com o charme histórico e o lazer de praia.</p>
+                    <p>A Automação Residencial SP oferece automação residencial em Santos focada na proteção contra a maresia e na eficiência de apartamentos e casas de veraneio.</p>
+                    <p>Instalamos câmeras de segurança com revestimento anticorrosivo, controle de acesso digital e iluminação inteligente que resiste ao litoral.</p>
+                    <p>Para quem mora ou veraneia em Santos, a possibilidade de monitorar o imóvel à distância e controle o ar-condicionado antes de chegar é um diferencial enorme.</p>
+                    <p>No setor corporativo, automatizamos escritórios e áreas logísticas com redes robustas e controle de acesso.</p>
+                    <p>Nossos técnicos entendem as especificidades do clima litorâneo e utilizam materiais de alta durabilidade.</p>
+                    <p>Leve tecnologia, segurança e conforto para seu imóvel na orla de Santos com a Automação SP.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Santos</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-santos-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SANTOS</a>
+                    </div>
+                </div>
+
+                <!-- São Vicente -->
+                <div class="cluster-card">
+                    <h4>São Vicente</h4>
+                    <p>São Vicente, a primeira vila do Brasil, é uma cidade histórica que hoje abriga moradores e turistas em busca das belas praias e do teleférico.</p>
+                    <p>A Automação Residencial SP leva tecnologia para residências e estabelecimentos comerciais em São Vicente, com foco em automação de illumination, som ambiente e segurança perimetral.</p>
+                    <p>A automação residencial em São Vicente é muito procurada para apartamentos de frente para o mar, onde o controle de persianas e do ar-condicionado pelo celular traz imediato conforto.</p>
+                    <p>Implementamos fechaduras digitais e câmeras CFTV que permitem aos proprietários monitorar o imóvel durante a semana, enquanto não estão na praia.</p>
+                    <p>Oferecemos soluções sem fio ideais para reformas rápidas em imóveis de veraneio, sem quebra de paredes.</p>
+                    <p>Nossos equipamentos são protegidos contra a maresia, garantindo longa vida útil.</p>
+                    <p>Desfrute de seu descanso em São Vicente com uma casa inteligente e totalmente segura.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para São Vicente</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-sao-vicente-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SÃO VICENTE</a>
+                    </div>
+                </div>
+
+                <!-- São Sebastião -->
+                <div class="cluster-card">
+                    <h4>São Sebastião</h4>
+                    <p>São Sebastião, no Litoral Norte, é famosa por suas praias paradisíacas, ilhas e por abrigar o porto de same.</p>
+                    <p>A cidade é um destino privilegiado para casas de alto padrão e resorts.</p>
+                    <p>A Automação Residencial SP implementa automação residencial em São Sebastião focada em luxo, sustentabilidade e integração com a natureza.</p>
+                    <p>Projetamos sistemas que controlam a iluminação externa de jardins, bombas de piscina e sistemas de som ambiente de alta potência, perfeitos para áreas de lazer.</p>
+                    <p>A segurança é reforçada com câmeras perimetrais e sensores de presença em grandes áreas.</p>
+                    <p>Para casas de veraneio, nossa automação permite que o proprietário gerencie acessos de prestadores e controle o gasto de energia a distância, evitando desperdícios.</p>
+                    <p>Instalamos equipamentos resistentes à maresia e à umidade.</p>
+                    <p>Transforme sua casa de praia em São Sebastião em um refúgio inteligente, onde o conforto e a segurança são gerenciados pela ponta dos dedos.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para São Sebastião</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-sao-sebastiao-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM SÃO SEBASTIÃO</a>
+                    </div>
+                </div>
+
+                <!-- Guarujá -->
+                <div class="cluster-card">
+                    <h4>Guarujá</h4>
+                    <p>Guarujá, conhecida como a "Pérola do Atlântico", é um dos destinos mais cobiçados do litoral paulista, repleta de condomínios luxuosos e iates.</p>
+                    <p>A Automação Residencial SP leva o melhor da automação residencial em Guarujá para casas de praia e apartamentos de alto padrão.</p>
+                    <p>Integrados ao estilo de vida litorâneo, nossos sistemas permitem o controle total da casa, incluindo persianas que bloqueiam o sol nas horas mais quentes, ar-condicionado automatizado e som ambiente para receber convidados.</p>
+                    <p>A segurança é prioritária, com instalação de câmeras de alta resolução e controle de acesso para portões de garagem e áreas de serviço.</p>
+                    <p>Oferecemos também gestão de energia, desligando equipamentos de áreas comuns quando o imóvel está vazio.</p>
+                    <p>Toda a nossa tecnologia é aplicada com resistência à maresia, garantindo durabilidade.</p>
+                    <p>Curta o melhor do Guarujá com o conforto e a tranquilidade de uma casa totalmente inteligente.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Guarujá</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-em-guaruja-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL EM GUARUJÁ</a>
+                    </div>
+                </div>
+
+                <!-- Riviera de São Lourenço -->
+                <div class="cluster-card">
+                    <h4>Riviera de São Lourenço</h4>
+                    <p>A Riviera de São Lourenço, em Bertioga, é um dos bairros planejados mais exclusivos do Brasil, conhecido por suas normas rigorosas de preservação ambiental e arquitetura sofisticada.</p>
+                    <p>A Automação Residencial SP é especialista em automação residencial na Riviera de São Lourenço, fornecendo tecnologias que respeitam a estética dos imóveis e potencializam o conforto.</p>
+                    <p>Automatizamos o controle de iluminação interna e externa, paisagismo, climatização e sistemas de áudio multiroom.</p>
+                    <p>Devido ao padrão de exigência do condomínio, nossas instalações são impecáveis e discretas, com cabeamento estruturado embutido.</p>
+                    <p>Para a segurança das casas de veraneio, implementamos monitoramento CFTV e sensores de presença que notificam o proprietário em caso de qualquer movimento no terreno.</p>
+                    <p>A gestão remota permite que você prepare a casa, ligando o ar e a iluminação, antes mesmo de chegar à Riviera.</p>
+                    <p>Invista em tecnologia de ponta para valorizar ainda mais seu imóvel na exclusiva Riviera de São Lourenço.</p>
+                    <div class="cluster-buttons">
+                        <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Solicitar Orçamento para Riviera</a>
+                        <a href="https://automacaoresidencial.app.br/automacao-residencial-na-riviera-de-sao-lourenco-sp/" class="cta-external-btn" target="_blank">SAIBA MAIS - AUTOMAÇÃO RESIDENCIAL NA RIVIERA DE SÃO LOURENÇO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cluster-cta" style="margin-top: 4rem;">
+            <h3 style="color: var(--white); margin-bottom: 1rem;">Solicite um Orçamento para a sua Cidade!</h3>
+            <p style="color: var(--text-light); margin-bottom: 1.5rem;">Atendemos toda a Grande São Paulo, Interior e Litoral com a excelência que sua casa ou empresa merece.</p>
+            <a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" class="cta-btn" target="_blank" rel="nofollow noopener">Falar no WhatsApp Agora</a>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h5>Automação SP</h5>
+                <p>Transformando casas e empresas em ambientes inteligentes, seguros e eficientes. Tecnologia de ponta com instalação premium em todo o estado de São Paulo.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Menu de Serviços</h5>
+                <ul>
+                    <li><a href="#residencial">Automação Residencial</a></li>
+                    <li><a href="#corporativa">Automação Corporativa</a></li>
+                    <li><a href="#iluminacao">Iluminação Inteligente</a></li>
+                    <li><a href="#ar">Ar Condicionado</a></li>
+                    <li><a href="#airbnb">Automação AIRBNB</a></li>
+                    <li><a href="#booking">Automação BOOKING</a></li>
+                    <li><a href="#solar">Energia Solar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Áreas de Atendimento</h5>
+                <ul>
+                    <li><a href="#grande-sp">Grande São Paulo</a></li>
+                    <li><a href="#interior">Interior de SP</a></li>
+                    <li><a href="#litoral">Litoral Paulista</a></li>
+                    <li><a href="#cidades">Todas as Cidades</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h5>Contato</h5>
+                <ul>
+                    <li>Atendimento: Seg a Sex, 08h às 18h (5x2)</li>
+                    <li><a href="https://api.whatsapp.com/send?phone=5511975596711&text=Venho+pelo+site+Automa%C3%A7%C3%A3o+Residencial+SP+ZAI.+Quero+informacoes+sobre+Orcamentos+e+seus+servi%C3%A7os.+Podemos+conversar?" target="_blank" rel="nofollow noopener">WhatsApp: (11) 97559-6711</a></li>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Automação Residencial SP. Todos os direitos reservados. | Desenvolvido por <a href="https://www.fernandocoutinho.com/sobre" style="color: var(--accent);">Agência de SEO em São Paulo</a></p>
         </div>
     </footer>
 
-    <script>
-        // Navegação suave para âncoras
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetElement = document.querySelector(this.getAttribute('href'));
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Animação de entrada dos elementos
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { 
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        document.querySelectorAll('.feature-box, .system-card, .question-block').forEach(element => {
-            element.style.opacity = 0;
-            element.style.transform = 'translateY(40px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            scrollObserver.observe(element);
-        });
-
-        // Efeito de fade-in na página
-        window.addEventListener('load', () => {
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                document.body.style.transition = 'opacity 0.6s ease';
-                document.body.style.opacity = 1;
-            }, 150);
-        });
-
-        // Animação suave para tabela
-        const tableObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const rows = entry.target.querySelectorAll('tbody tr');
-                    rows.forEach((row, index) => {
-                        setTimeout(() => {
-                            row.style.opacity = 1;
-                            row.style.transform = 'translateX(0)';
-                        }, index * 100);
-                    });
-                }
-            });
-        }, { threshold: 0.2 });
-
-        const table = document.querySelector('.comparison-table');
-        if (table) {
-            const rows = table.querySelectorAll('tbody tr');
-            rows.forEach(row => {
-                row.style.opacity = 0;
-                row.style.transform = 'translateX(-30px)';
-                row.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            });
-            tableObserver.observe(table);
-        }
-    </script>
 </body>
 </html>
